@@ -16,7 +16,7 @@ public abstract class MixinPlayerTempCap implements ITemperatureCap {
     /**
      * Cave dragons take no damage from high temperature<br>
      * Sea dragons take no damage from low temperature<br>
-     * TODO :: Forest dragons (lower the damage for both types?)
+     * Forest dragons take reduced damage from both temperature types<br>
      * <br>
      * Override due to it being a default interface method
      */
@@ -27,6 +27,8 @@ public abstract class MixinPlayerTempCap implements ITemperatureCap {
                 return;
             } else if (DragonUtils.isDragonType(player, DragonTypes.SEA) && source == ModDamageSources.COLD) {
                 return;
+            } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
+                amount = amount * 0.65f;
             }
         }
 

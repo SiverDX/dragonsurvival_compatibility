@@ -33,9 +33,7 @@ public abstract class MixinAnimationApplier extends AnimationProcessor {
         }
 
         if (partName.equals("rightArm") || partName.equals("leftArm")) {
-
             if (IS_BETTERCOMBAT_LOADED && instance.options.getCameraType().isFirstPerson() && instance.screen == null) {
-                // TODO :: Find a way to cache this? (maybe in a general sense for all calls)
                 DragonStateHandler handler = DragonUtils.getHandler(player);
 
                 if (handler.isDragon()) {

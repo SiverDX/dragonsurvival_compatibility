@@ -16,7 +16,6 @@ import static de.cadentem.dragonsurvival_compatibility.DragonSurvivalCompatibili
 
 @Mixin(LevelRenderer.class)
 public class MixinLevelRenderer {
-
     /** Avoid rendering the floating weapon */
     @Inject(method = "renderEntity", at = @At(value = "HEAD"), cancellable = true)
     public void skipRenderEntity(final Entity entity, double camX, double camY, double camZ, float partialTick, final PoseStack poseStack, final MultiBufferSource bufferSource, final CallbackInfo callback) {

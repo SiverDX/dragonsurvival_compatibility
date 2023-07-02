@@ -20,18 +20,26 @@ public class MixinTempEffectsClient {
     /**
      * Cave dragons have no negative effects from high temperature
      * Sea dragons have no negative effects from low temperature
-     * TODO :: Forest dragons (base immunity of 2?)
+     * Forest dragons have resistance against both temperatures
      */
     @Inject(method = "onClientTick", at = @At("RETURN"), remap = false)
     private static void modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {
         LocalPlayer player = Minecraft.getInstance().player;
 
-        if (HOT_IMMUNITY < 4 && DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
-            HOT_IMMUNITY = 4;
+        if (HOT_IMMUNITY < 4) {
+            if (DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
+                HOT_IMMUNITY = 4;
+            } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
+                HOT_IMMUNITY = 2;
+            }
         }
 
-        if (COLD_IMMUNITY < 4 && DragonUtils.isDragonType(player, DragonTypes.SEA)) {
-            COLD_IMMUNITY = 4;
+        if (COLD_IMMUNITY < 4) {
+            if (DragonUtils.isDragonType(player, DragonTypes.SEA)) {
+                COLD_IMMUNITY = 4;
+            } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
+                COLD_IMMUNITY = 2;
+            }
         }
     }
 }
