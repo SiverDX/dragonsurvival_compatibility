@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.cadentem.dragonsurvival_compatibility.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
+  "refmap": "dragonsurvival_compatibility.refmap.json",
+  "mixins": [
+    "coldsweat.MixinPlayerTempCap"
+  ],
+  "client": [
+    "bettercombat.MixinClientDragonRender",
+    "bettercombat.MixinLevelRenderer",
+    "bettercombat.MixinAnimationApplier",
+    "bettercombat.MixinPlayer",
+    "coldsweat.MixinTempEffectsClient",
+    "jade.MixinJadeHarvestToolProvider",
+    "wthitharvestability.MixinHarvestabilityWailaHandler"
+  ]
+}
