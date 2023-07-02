@@ -33,7 +33,7 @@ public class MixinTempEffectsClient {
                 if (DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
                     HOT_IMMUNITY = 4;
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                    HOT_IMMUNITY = Math.min(2, COLD_IMMUNITY);
+                    HOT_IMMUNITY = Math.max(2, COLD_IMMUNITY);
                 }
             }
 
@@ -41,7 +41,7 @@ public class MixinTempEffectsClient {
                 if (DragonUtils.isDragonType(player, DragonTypes.SEA)) {
                     COLD_IMMUNITY = 4;
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                    COLD_IMMUNITY = Math.min(2, COLD_IMMUNITY);
+                    COLD_IMMUNITY = Math.max(2, COLD_IMMUNITY);
                 }
             }
         }
