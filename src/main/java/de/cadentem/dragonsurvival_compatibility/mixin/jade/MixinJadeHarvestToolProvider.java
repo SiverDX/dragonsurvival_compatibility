@@ -3,6 +3,7 @@ package de.cadentem.dragonsurvival_compatibility.mixin.jade;
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.TieredItem;
@@ -33,19 +34,21 @@ public class MixinJadeHarvestToolProvider {
     /** Give Jade the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getText", at = @At(value = "STORE"), name = "held", remap = false)
     public ItemStack change(final ItemStack itemStack) {
-        // TODO :: Can this be safely cached?
-        DragonStateHandler handler = DragonUtils.getHandler(accessor.getPlayer());
+        if (ClientConfig.ENABLE_JADE.get()) {
+            DragonStateHandler handler = DragonUtils.getHandler(accessor.getPlayer());
 
-        if (handler.isDragon()) {
-            Tier tier = handler.getDragonHarvestTier(accessor.getBlockState());
-            ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(accessor.getPlayer());
+            if (handler.isDragon()) {
+                Tier tier = handler.getDragonHarvestTier(accessor.getBlockState());
+                // TODO :: Cache this?
+                ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(accessor.getPlayer());
 
-            // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
-            if (!(clawStack.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
-                return handler.getFakeTool(accessor.getBlockState());
+                // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
+                if (!(clawStack.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
+                    return handler.getFakeTool(accessor.getBlockState());
+                }
+
+                return clawStack;
             }
-
-            return clawStack;
         }
 
         return itemStack;

@@ -1,7 +1,8 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.coldsweat;
+package de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat;
 
 import by.dragonsurvivalteam.dragonsurvival.common.dragon_types.DragonTypes;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import dev.momostudios.coldsweat.common.capability.ITemperatureCap;
 import dev.momostudios.coldsweat.common.capability.PlayerTempCap;
 import dev.momostudios.coldsweat.config.ConfigSettings;
@@ -22,13 +23,15 @@ public abstract class MixinPlayerTempCap implements ITemperatureCap {
      */
     @Override
     public void dealTempDamage(final LivingEntity target, final DamageSource source, float amount) {
-        if (target instanceof Player player) {
-            if (DragonUtils.isDragonType(player, DragonTypes.CAVE) && source == ModDamageSources.HOT) {
-                return;
-            } else if (DragonUtils.isDragonType(player, DragonTypes.SEA) && source == ModDamageSources.COLD) {
-                return;
-            } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                amount = amount * 0.65f;
+        if (ServerConfig.ENABLE_COLD_SWEAT.get()) {
+            if (target instanceof Player player) {
+                if (DragonUtils.isDragonType(player, DragonTypes.CAVE) && source == ModDamageSources.HOT) {
+                    return;
+                } else if (DragonUtils.isDragonType(player, DragonTypes.SEA) && source == ModDamageSources.COLD) {
+                    return;
+                } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
+                    amount = amount * 0.65f;
+                }
             }
         }
 

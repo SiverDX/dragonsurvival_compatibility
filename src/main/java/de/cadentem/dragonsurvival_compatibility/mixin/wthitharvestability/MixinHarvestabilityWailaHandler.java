@@ -3,6 +3,7 @@ package de.cadentem.dragonsurvival_compatibility.mixin.wthitharvestability;
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -35,19 +36,20 @@ public class MixinHarvestabilityWailaHandler {
     /** Give WTHIT the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getHarvestability", at = @At(value = "STORE"), name = "heldStack", remap = false)
     public ItemStack change(final ItemStack itemStack) {
-        // TODO :: Can this be safely cached?
-        DragonStateHandler handler = DragonUtils.getHandler(player);
+        if (ClientConfig.ENABLE_WTHITHARVESTABILITY.get()) {
+            DragonStateHandler handler = DragonUtils.getHandler(player);
 
-        if (handler.isDragon()) {
-            Tier tier = handler.getDragonHarvestTier(blockState);
-            ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(player);
+            if (handler.isDragon()) {
+                Tier tier = handler.getDragonHarvestTier(blockState);
+                ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(player);
 
-            // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
-            if (!(clawStack.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
-                return handler.getFakeTool(blockState);
+                // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
+                if (!(clawStack.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
+                    return handler.getFakeTool(blockState);
+                }
+
+                return clawStack;
             }
-
-            return clawStack;
         }
 
         return itemStack;

@@ -6,14 +6,14 @@
   "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
-    "coldsweat.MixinPlayerTempCap"
+    "cold_sweat.MixinPlayerTempCap"
   ],
   "client": [
     "bettercombat.MixinClientDragonRender",
     "bettercombat.MixinLevelRenderer",
     "bettercombat.MixinAnimationApplier",
     "bettercombat.MixinPlayer",
-    "coldsweat.MixinTempEffectsClient",
+    "cold_sweat.MixinTempEffectsClient",
     "jade.MixinJadeHarvestToolProvider",
     "wthitharvestability.MixinHarvestabilityWailaHandler"
   ]

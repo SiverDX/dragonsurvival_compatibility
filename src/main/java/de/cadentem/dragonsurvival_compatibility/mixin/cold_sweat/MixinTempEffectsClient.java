@@ -1,7 +1,8 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.coldsweat;
+package de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat;
 
 import by.dragonsurvivalteam.dragonsurvival.common.dragon_types.DragonTypes;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import dev.momostudios.coldsweat.client.event.TempEffectsClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -24,21 +25,24 @@ public class MixinTempEffectsClient {
      */
     @Inject(method = "onClientTick", at = @At("RETURN"), remap = false)
     private static void modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {
-        LocalPlayer player = Minecraft.getInstance().player;
+        if (ServerConfig.ENABLE_COLD_SWEAT.get()) {
+            LocalPlayer player = Minecraft.getInstance().player;
 
-        if (HOT_IMMUNITY < 4) {
-            if (DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
-                HOT_IMMUNITY = 4;
-            } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                HOT_IMMUNITY = 2;
+            // TODO :: Is it safe to add to the immunity instead of increasing it?
+            if (HOT_IMMUNITY < 4) {
+                if (DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
+                    HOT_IMMUNITY = 4;
+                } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
+                    HOT_IMMUNITY = Math.min(2, COLD_IMMUNITY);
+                }
             }
-        }
 
-        if (COLD_IMMUNITY < 4) {
-            if (DragonUtils.isDragonType(player, DragonTypes.SEA)) {
-                COLD_IMMUNITY = 4;
-            } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                COLD_IMMUNITY = 2;
+            if (COLD_IMMUNITY < 4) {
+                if (DragonUtils.isDragonType(player, DragonTypes.SEA)) {
+                    COLD_IMMUNITY = 4;
+                } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
+                    COLD_IMMUNITY = Math.min(2, COLD_IMMUNITY);
+                }
             }
         }
     }
