@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientDragonRender.class)
 public class MixinClientDragonRender {
-    /** Render the Better Combat attack animation (but not the player skin) */
+    /** @reason Render the Better Combat attack animation (but not the player skin) */
     @Inject(method = "thirdPersonPreRender", at = @At("HEAD"), cancellable = true, remap = false)
     private static void modifyRender(final RenderPlayerEvent.Pre renderPlayerEvent, final CallbackInfo callback) {
         if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {

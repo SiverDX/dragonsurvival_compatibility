@@ -21,7 +21,7 @@ public abstract class MixinAnimationApplier extends AnimationProcessor {
         super(animation);
     }
 
-    /** Adjust the Better Combat attack animation to the dragon size */
+    /** @reason Adjust the Better Combat attack animation to the dragon size */
     @Inject(method = "updatePart", at = @At("TAIL"), remap = false)
     public void offsetAttackAnimation(final String partName, final ModelPart part, final CallbackInfo callback) {
         if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {

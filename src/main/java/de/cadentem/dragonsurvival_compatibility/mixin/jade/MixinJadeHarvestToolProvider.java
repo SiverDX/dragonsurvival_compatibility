@@ -25,13 +25,13 @@ import java.util.List;
 public class MixinJadeHarvestToolProvider {
     private BlockAccessor accessor;
 
-    /** Get {@link net.minecraft.world.entity.player.Player} and {@link net.minecraft.world.level.block.state.BlockState} */
+    /** @reason Get {@link net.minecraft.world.entity.player.Player} and {@link net.minecraft.world.level.block.state.BlockState} */
     @Inject(method = "getText", at = @At("HEAD"), remap = false)
     public void getAccesor(final BlockAccessor accessor, final IPluginConfig config, final IElementHelper helper, final CallbackInfoReturnable<List<IElement>> callback) {
         this.accessor = accessor;
     }
 
-    /** Give Jade the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
+    /** @reason Give Jade the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getText", at = @At(value = "STORE"), name = "held", remap = false)
     public ItemStack change(final ItemStack itemStack) {
         if (ClientConfig.ENABLE_JADE.get()) {

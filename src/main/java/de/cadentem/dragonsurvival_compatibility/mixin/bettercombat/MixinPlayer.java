@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(value = Player.class)
 public abstract class MixinPlayer {
-    /** Re-enable sweeping for dragons when Better Combat is installed since it currently does not work with the dragon claw slot */
+    /** @reason Re-enable sweeping for dragons when Better Combat is installed since it currently does not work with the dragon claw slot */
     @ModifyVariable(method = "attack", at = @At("STORE"), ordinal = 3)
     private boolean reEnableSweeping(boolean value) {
         if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {

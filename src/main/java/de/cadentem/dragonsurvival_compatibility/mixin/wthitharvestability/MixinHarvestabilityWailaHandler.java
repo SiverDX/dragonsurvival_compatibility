@@ -26,14 +26,14 @@ public class MixinHarvestabilityWailaHandler {
     private Player player;
     private BlockState blockState;
 
-    /** Get {@link Player} and {@link BlockState} */
+    /** @reason Get {@link Player} and {@link BlockState} */
     @Inject(method = "getHarvestability", at = @At("HEAD"), remap = false)
     public void getPlayer(final List<Component> stringList, final Player player, final BlockState blockState, final BlockPos pos, final mcp.mobius.waila.api.IPluginConfig config, boolean minimalLayout, CallbackInfo callback) {
         this.player = player;
         this.blockState = blockState;
     }
 
-    /** Give WTHIT the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
+    /** @reason Give WTHIT the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getHarvestability", at = @At(value = "STORE"), name = "heldStack", remap = false)
     public ItemStack change(final ItemStack itemStack) {
         if (ClientConfig.ENABLE_WTHITHARVESTABILITY.get()) {
@@ -41,6 +41,7 @@ public class MixinHarvestabilityWailaHandler {
 
             if (handler.isDragon()) {
                 Tier tier = handler.getDragonHarvestTier(blockState);
+                // TODO :: Cache this?
                 ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(player);
 
                 // Main hand is not a tool or its tier is lower than the base harvest level of the dragon

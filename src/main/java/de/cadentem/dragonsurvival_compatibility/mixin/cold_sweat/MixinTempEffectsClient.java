@@ -18,10 +18,12 @@ public class MixinTempEffectsClient {
     @Shadow static int HOT_IMMUNITY;
     @Shadow static int COLD_IMMUNITY;
 
-    /**
-     * Cave dragons have no negative effects from high temperature
-     * Sea dragons have no negative effects from low temperature
-     * Forest dragons have resistance against both temperatures
+    /** @reason Modifies the effect of temperatures on the dragon types
+     * <ul>
+     * <li>Cave dragons have no negative effects from high temperature</li>
+     * <li>Sea dragons have no negative effects from low temperature</li>
+     * <li>Forest dragons have resistance against both temperatures</li>
+     * </ul>
      */
     @Inject(method = "onClientTick", at = @At("RETURN"), remap = false)
     private static void modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {

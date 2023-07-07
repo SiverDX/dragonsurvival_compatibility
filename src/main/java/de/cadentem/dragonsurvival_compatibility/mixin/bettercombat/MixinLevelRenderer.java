@@ -15,7 +15,7 @@ import software.bernie.geckolib3.core.processor.IBone;
 
 @Mixin(LevelRenderer.class)
 public class MixinLevelRenderer {
-    /** Avoid rendering the floating weapon */
+    /** @reason Avoid rendering the floating weapon */
     @Inject(method = "renderEntity", at = @At(value = "HEAD"), cancellable = true)
     public void skipRenderEntity(final Entity entity, double camX, double camY, double camZ, float partialTick, final PoseStack poseStack, final MultiBufferSource bufferSource, final CallbackInfo callback) {
         if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {
