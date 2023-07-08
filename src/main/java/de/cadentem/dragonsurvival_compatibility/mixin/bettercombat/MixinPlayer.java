@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-@Mixin(value = Player.class)
+@Mixin(Player.class)
 public abstract class MixinPlayer {
     /** @reason Re-enable sweeping for dragons when Better Combat is installed since it currently does not work with the dragon claw slot */
     @ModifyVariable(method = "attack", at = @At("STORE"), ordinal = 3)

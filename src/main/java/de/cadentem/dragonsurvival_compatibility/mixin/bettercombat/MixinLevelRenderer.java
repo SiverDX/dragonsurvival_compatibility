@@ -15,8 +15,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-/** @reason Avoid rendering the floating weapon */
-@Mixin(value = LevelRenderer.class, priority = 950) // Run before Dragon Survival
+/** Avoid rendering the floating weapon armor */
+@Mixin(LevelRenderer.class)
 public abstract class MixinLevelRenderer {
     /** Used to "cancel" the Dragon Survival Mixin */
     @Unique private boolean dragonsurvival_compatibility$renderInFirstPerson;

@@ -9,5 +9,8 @@
 TempHelper.addTemperature(player, new Temperature(50), Temperature.Types.BASE);
 ```
 
+Give Ice / Fire resistance instead?
+Forest dragon -> if below 0 add 15, if above 0 subtract 15
+
 # Configuration
 Option to disable mixin?

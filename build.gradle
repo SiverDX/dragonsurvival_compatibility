@@ -46,10 +46,6 @@ minecraft {
                     source sourceSets.main
                 }
             }
-
-            // Load Mixin reference maps of dependencies
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
         }
 
         server {

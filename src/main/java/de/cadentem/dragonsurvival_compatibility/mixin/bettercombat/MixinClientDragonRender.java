@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value = ClientDragonRender.class)
+@Mixin(ClientDragonRender.class)
 public abstract class MixinClientDragonRender {
     /** @reason Render the Better Combat attack animation (but not the player skin) */
     @Inject(method = "thirdPersonPreRender", at = @At("HEAD"), cancellable = true, remap = false)
