@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(TempEffectsClient.class)
-public class MixinTempEffectsClient {
+public abstract class MixinTempEffectsClient {
     @Shadow static int HOT_IMMUNITY;
     @Shadow static int COLD_IMMUNITY;
 

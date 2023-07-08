@@ -37,7 +37,7 @@ minecraft {
 
     runs {
         client {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run/client')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', mod_id
@@ -46,10 +46,14 @@ minecraft {
                     source sourceSets.main
                 }
             }
+
+            // Load Mixin reference maps of dependencies
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
         }
 
         server {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run/server')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', mod_id
@@ -61,7 +65,7 @@ minecraft {
         }
 
         gameTestServer {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run/server')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
             property 'forge.enabledGameTestNamespaces', mod_id
@@ -73,9 +77,6 @@ minecraft {
         }
 
         data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -111,8 +112,8 @@ dependencies {
     // Core
 //    implementation fg.deobf("curse.maven:dragons-survival-420799:4608802") // 1.19.2 - 1.5.52
 //    implementation 'com.github.DragonSurvivalTeam:DragonSurvival:v1.19.2-SNAPSHOT'
-    compileOnly files("libs/DragonSurvival-1.19.2-1.5.52.jar")
-    compileOnly fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_mc_version}:${geckolib_version}")
+    implementation files("libs/DragonSurvival-1.19.2-1.5.53.jar")
+    implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_mc_version}:${geckolib_version}")
 
     // # --- Mods --- #
     // Cold Sweat
@@ -127,6 +128,8 @@ dependencies {
 
     // Player Animator (for Better Combat)
     compileOnly fg.deobf("curse.maven:playeranimator-658587:4418149") // 1.19.2 - 1.0.2
+
+    compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:4536108") // 1.19.2 - 5.1.0.9
 
     // # --- Mixin --- #
     // https://github.com/LlamaLad7/MixinExtras
