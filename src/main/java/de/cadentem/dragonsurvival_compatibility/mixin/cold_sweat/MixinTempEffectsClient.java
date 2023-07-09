@@ -33,7 +33,7 @@ public abstract class MixinTempEffectsClient {
             // TODO :: Is it safe to add to the immunity instead of increasing it?
             if (HOT_IMMUNITY < 4) {
                 if (DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
-                    HOT_IMMUNITY = 4;
+//                    HOT_IMMUNITY = 4;
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
                     HOT_IMMUNITY = Math.max(2, COLD_IMMUNITY);
                 }
@@ -41,7 +41,7 @@ public abstract class MixinTempEffectsClient {
 
             if (COLD_IMMUNITY < 4) {
                 if (DragonUtils.isDragonType(player, DragonTypes.SEA)) {
-                    COLD_IMMUNITY = 4;
+//                    COLD_IMMUNITY = 4;
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
                     COLD_IMMUNITY = Math.max(2, COLD_IMMUNITY);
                 }

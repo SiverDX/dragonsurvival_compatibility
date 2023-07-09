@@ -26,9 +26,9 @@ public abstract class MixinPlayerTempCap implements ITemperatureCap {
         if (ServerConfig.ENABLE_COLD_SWEAT.get()) {
             if (target instanceof Player player) {
                 if (DragonUtils.isDragonType(player, DragonTypes.CAVE) && source == ModDamageSources.HOT) {
-                    return;
+//                    return;
                 } else if (DragonUtils.isDragonType(player, DragonTypes.SEA) && source == ModDamageSources.COLD) {
-                    return;
+//                    return;
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
                     amount = amount * 0.65f;
                 }
