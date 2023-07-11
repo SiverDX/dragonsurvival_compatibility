@@ -41,6 +41,11 @@ public abstract class MixinHarvestabilityWailaHandler {
             DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$player);
 
             if (handler.isDragon()) {
+                if (dragonsurvival_compatibility$player.getMainHandItem().getItem() instanceof TieredItem) {
+                    // Dragon tools / bonus are not being used in this case
+                    return itemStack;
+                }
+
                 Tier tier = handler.getDragonHarvestTier(dragonsurvival_compatibility$blockState);
                 // TODO :: Cache this?
                 ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(dragonsurvival_compatibility$player);

@@ -39,6 +39,11 @@ public abstract class MixinJadeHarvestToolProvider {
             DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$accessor.getPlayer());
 
             if (handler.isDragon()) {
+                if (dragonsurvival_compatibility$accessor.getPlayer().getMainHandItem().getItem() instanceof TieredItem) {
+                    // Dragon tools / bonus are not being used in this case
+                    return itemStack;
+                }
+
                 Tier tier = handler.getDragonHarvestTier(dragonsurvival_compatibility$accessor.getBlockState());
                 // TODO :: Cache this?
                 ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(dragonsurvival_compatibility$accessor.getPlayer());
