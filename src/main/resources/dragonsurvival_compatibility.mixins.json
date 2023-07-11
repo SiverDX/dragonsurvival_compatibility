@@ -6,7 +6,8 @@
   "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
-    "cold_sweat.MixinPlayerTempCap"
+    "cold_sweat.MixinPlayerTempCap",
+    "cold_sweat.MixinTempEffectsCommon"
   ],
   "client": [
     "bettercombat.MixinClientDragonRender",

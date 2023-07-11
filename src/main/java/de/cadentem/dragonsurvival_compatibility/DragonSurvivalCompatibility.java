@@ -31,11 +31,11 @@ public class DragonSurvivalCompatibility {
         }
 
         if (ModList.get().isLoaded("cold_sweat")) {
-            MinecraftForge.EVENT_BUS.register(ColdSweatEventHandler.class);
+//            MinecraftForge.EVENT_BUS.register(ColdSweatEventHandler.class);
         }
     }
     @SubscribeEvent
-    public void test(final ModConfigEvent.Reloading event) {
+    public void reloadConfiguration(final ModConfigEvent.Reloading event) {
         // FIXME :: Configured does not post an event for server config
         if (event.getConfig().getSpec() == ServerConfig.SPEC) {
             ServerConfig.ENABLE_UPGRADED_NETHERITE.clearCache();

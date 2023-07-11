@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UpgradedNetheriteEventHandler {
+    // FIXME :: What happens if you log out while dead?
     private final Map<String, List<Pair<Integer, ItemStack>>> storedDragonClawInventory = new HashMap<>();
 
     /** Need to run before the original check (since it will drop the Echo Armor, meaning we cannot check if we have the set equipped) */

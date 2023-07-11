@@ -18,7 +18,8 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
 
     private final Set<String> coldsweat = Set.of(
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinPlayerTempCap",
-            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsClient"
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsClient",
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsCommon"
     );
 
     @Override
