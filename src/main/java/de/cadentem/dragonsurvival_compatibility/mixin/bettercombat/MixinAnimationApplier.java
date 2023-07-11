@@ -16,11 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(AnimationApplier.class)
-public abstract class MixinAnimationApplier extends AnimationProcessor {
-    public MixinAnimationApplier(final IAnimation animation) {
-        super(animation);
-    }
-
+public abstract class MixinAnimationApplier {
     /** @reason Adjust the Better Combat attack animation to the dragon size */
     @Inject(method = "updatePart", at = @At("TAIL"), remap = false)
     public void offsetAttackAnimation(final String partName, final ModelPart part, final CallbackInfo callback) {
