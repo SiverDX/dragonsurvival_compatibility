@@ -44,7 +44,7 @@ public class UpgradedNetheriteEventHandler {
                     boolean canStore = false;
 
                     if (!EnchantmentHelper.hasVanishingCurse(itemStack)) {
-                        if (UpgradedNetheriteConfig.EnableSoulbound) {
+                        if (EchoUtil.isEchoSoulbound(itemStack) && UpgradedNetheriteConfig.EnableSoulbound) {
                             canStore = true;
                         } else if (UpgradedNetheriteConfig.EnableKeepItemsChance && isWearingEchoArmor && random <= UpgradedNetheriteConfig.KeepItemsChance) {
                             canStore = true;
