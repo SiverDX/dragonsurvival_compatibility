@@ -7,7 +7,8 @@
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
     "cold_sweat.MixinPlayerTempCap",
-    "cold_sweat.MixinTempEffectsCommon"
+    "cold_sweat.MixinTempEffectsCommon",
+    "cold_sweat.MixinPreventPlayerSleep"
   ],
   "client": [
     "bettercombat.MixinClientDragonRender",

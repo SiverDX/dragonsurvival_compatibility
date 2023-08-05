@@ -114,7 +114,7 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    compileOnly fg.deobf("curse.maven:cold-sweat-506194:4634385") // 1.19.2 - 2.2-b04i
+    compileOnly fg.deobf("curse.maven:cold-sweat-506194:4679793") // 1.19.2 - 2.2-b05b
 
     // Jade Support
     compileOnly fg.deobf("curse.maven:jade-324717:4433884") // 1.19.1 - 8.8.1
@@ -126,6 +126,7 @@ dependencies {
     // Player Animator (for Better Combat)
     compileOnly fg.deobf("curse.maven:playeranimator-658587:4418149") // 1.19.2 - 1.0.2
 
+    // Upgraded Netherite
     compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:4536108") // 1.19.2 - 5.1.0.9
 
     // # --- Mixin --- #
