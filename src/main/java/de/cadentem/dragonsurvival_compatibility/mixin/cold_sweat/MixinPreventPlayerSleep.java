@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PreventPlayerSleep.class)
 public abstract class MixinPreventPlayerSleep {
-    @Inject(method = "onTrySleep", at = @At(value = "HEAD"), cancellable = true)
+    @Inject(method = "onTrySleep", at = @At(value = "HEAD"), cancellable = true, remap = false)
     private static void sleepForDragonCheck(final PlayerSleepInBedEvent event, final CallbackInfo callback) {
         if (ServerConfig.ENABLE_COLD_SWEAT.get()) {
             if (event.getResultStatus() == null && ConfigSettings.CHECK_SLEEP_CONDITIONS.get()) {
