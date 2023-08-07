@@ -19,7 +19,13 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
     private final Set<String> coldsweat = Set.of(
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinPlayerTempCap",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsClient",
-            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsCommon"
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsCommon",
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.PreventPlayerSleep"
+    );
+
+    private final Set<String> puffish_skills = Set.of(
+            "de.cadentem.dragonsurvival_compatibility.mixin.puffish_skills.MixinClawToolHandler",
+            "de.cadentem.dragonsurvival_compatibility.mixin.puffish_skills.MixinMineBlockExperienceSource"
     );
 
     @Override
@@ -40,6 +46,10 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
 
         if (coldsweat.contains(mixinClassName)) {
             return LoadingModList.get().getModFileById("cold_sweat") != null;
+        }
+
+        if (puffish_skills.contains(mixinClassName)) {
+            return LoadingModList.get().getModFileById("puffish_skills") != null;
         }
 
         if (mixinClassName.equals("de.cadentem.dragonsurvival_compatibility.mixin.jade.MixinJadeHarvestToolProvider")) {

@@ -18,7 +18,7 @@ import org.slf4j.Logger;
 @Mod(DragonSurvivalCompatibility.MODID)
 public class DragonSurvivalCompatibility {
     public static final String MODID = "dragonsurvival_compatibility";
-    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOG = LogUtils.getLogger();
 
     public DragonSurvivalCompatibility() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);

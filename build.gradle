@@ -109,7 +109,7 @@ dependencies {
     // Core
 //    implementation fg.deobf("curse.maven:dragons-survival-420799:4608802") // 1.19.2 - 1.5.52
 //    implementation 'com.github.DragonSurvivalTeam:DragonSurvival:v1.19.2-SNAPSHOT'
-    implementation files("libs/DragonSurvival-1.19.2-1.5.53.jar")
+    implementation files("libs/DragonSurvival-1.19.2-1.5.56.jar")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_mc_version}:${geckolib_version}")
 
     // # --- Mods --- #
@@ -128,6 +128,9 @@ dependencies {
 
     // Upgraded Netherite
     compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:4536108") // 1.19.2 - 5.1.0.9
+
+    // Puffish Skills
+    compileOnly fg.deobf("curse.maven:puffish-skills-835091:4568620") // 1.19.2 - 0.4.0
 
     // # --- Mixin --- #
     // https://github.com/LlamaLad7/MixinExtras
