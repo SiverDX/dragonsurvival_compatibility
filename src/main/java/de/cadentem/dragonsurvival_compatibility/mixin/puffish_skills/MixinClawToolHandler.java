@@ -17,11 +17,9 @@ public class MixinClawToolHandler {
         if (ServerConfig.ENABLE_PUFFISH_SKILLS.get()) {
             EntityAttributeInstanceAccess attribute = (EntityAttributeInstanceAccess) event.getEntity().getAttribute(PlayerAttributes.MINING_SPEED);
 
-            if (attribute == null) {
-                return value;
+            if (attribute != null) {
+                return (float) attribute.computeValueForInitial(value);
             }
-
-            return (float) attribute.computeValueForInitial(value);
         }
 
         return value;

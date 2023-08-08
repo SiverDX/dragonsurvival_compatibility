@@ -9,7 +9,8 @@
     "cold_sweat.MixinPlayerTempCap",
     "cold_sweat.MixinTempEffectsCommon",
     "cold_sweat.MixinPreventPlayerSleep",
-    "puffish_skills.MixinMineBlockExperienceSource"
+    "puffish_skills.MixinMineBlockExperienceSource",
+    "puffish_skills.MixinClawToolHandler"
   ],
   "client": [
     "bettercombat.MixinClientDragonRender",
@@ -18,7 +19,6 @@
     "bettercombat.MixinPlayer",
     "cold_sweat.MixinTempEffectsClient",
     "jade.MixinJadeHarvestToolProvider",
-    "wthitharvestability.MixinHarvestabilityWailaHandler",
-    "puffish_skills.MixinClawToolHandler"
+    "wthitharvestability.MixinHarvestabilityWailaHandler"
   ]
 }

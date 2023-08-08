@@ -45,8 +45,7 @@ public abstract class MixinJadeHarvestToolProvider {
                 }
 
                 Tier tier = handler.getDragonHarvestTier(dragonsurvival_compatibility$accessor.getBlockState());
-                // TODO :: Cache this?
-                ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(dragonsurvival_compatibility$accessor.getPlayer());
+                ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(dragonsurvival_compatibility$accessor.getPlayer(), dragonsurvival_compatibility$accessor.getBlockState());
 
                 // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
                 if (!(clawStack.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
