@@ -11,10 +11,9 @@ public class ServerConfig {
     public static ForgeConfigSpec.BooleanValue ENABLE_PUFFISH_SKILLS;
 
     static {
-        BUILDER.comment("These changes require a server restart");
         ENABLE_COLD_SWEAT = BUILDER.comment("Enable Cold Sweat Compatibility").define("enable_cold_sweat", true);
         ENABLE_UPGRADED_NETHERITE = BUILDER.comment("Enable Upgraded Netherite Compatibility").define("enable_upgraded_netherite", true);
-        ENABLE_PUFFISH_SKILLS = BUILDER.comment("Enable Puffish Skills Compatibility").define("enable_puffish_skills", true);
+        ENABLE_PUFFISH_SKILLS = BUILDER.comment("Enable Pufferfish's Skills Compatibility").define("enable_puffish_skills", true);
         SPEC = BUILDER.build();
     }
 }

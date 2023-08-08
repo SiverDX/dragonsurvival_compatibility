@@ -3,6 +3,7 @@ package de.cadentem.dragonsurvival_compatibility.mixin.wthitharvestability;
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import de.cadentem.dragonsurvival_compatibility.Utils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -38,11 +39,10 @@ public abstract class MixinHarvestabilityWailaHandler {
     @ModifyVariable(method = "getHarvestability", at = @At(value = "STORE"), name = "heldStack", remap = false)
     public ItemStack change(final ItemStack itemStack) {
         if (ClientConfig.ENABLE_WTHITHARVESTABILITY.get()) {
-            DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$player);
+            if (Utils.shouldUseDragonHarvestTools(itemStack)) {
+                DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$player);
 
-            if (handler.isDragon()) {
-                if (dragonsurvival_compatibility$player.getMainHandItem().getItem() instanceof TieredItem) {
-                    // Dragon tools / bonus are not being used in this case
+                if (!handler.isDragon()) {
                     return itemStack;
                 }
 

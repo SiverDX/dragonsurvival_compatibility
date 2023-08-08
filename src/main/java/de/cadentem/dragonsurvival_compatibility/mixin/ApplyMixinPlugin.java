@@ -20,7 +20,8 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinPlayerTempCap",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsClient",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsCommon",
-            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.PreventPlayerSleep"
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.PreventPlayerSleep",
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler"
     );
 
     private final Set<String> puffish_skills = Set.of(
@@ -58,6 +59,10 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
 
         if (mixinClassName.equals("de.cadentem.dragonsurvival_compatibility.mixin.wthitharvestability.MixinHarvestabilityWailaHandler")) {
             return LoadingModList.get().getModFileById("wthitharvestability") != null;
+        }
+
+        if (mixinClassName.equals("de.cadentem.dragonsurvival_compatibility.mixin.raised.MixinClientMagicHUDHandler")) {
+            return LoadingModList.get().getModFileById("raised") != null;
         }
 
         return true;

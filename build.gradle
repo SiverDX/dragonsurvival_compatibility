@@ -93,23 +93,21 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    // Local
+    flatDir { dirs "libs" }
+
     // CurseForge
     maven { url "https://cursemaven.com" }
 
     // Geckolib
     maven { url "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
-
-    // GitHub
-//    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Core
-//    implementation fg.deobf("curse.maven:dragons-survival-420799:4608802") // 1.19.2 - 1.5.52
-//    implementation 'com.github.DragonSurvivalTeam:DragonSurvival:v1.19.2-SNAPSHOT'
-    implementation files("libs/DragonSurvival-1.19.2-1.5.56.jar")
+    implementation fg.deobf("libs:dragonsurvival:1.19.2-1.5.56")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_mc_version}:${geckolib_version}")
 
     // # --- Mods --- #
@@ -132,8 +130,10 @@ dependencies {
     // Puffish Skills
     compileOnly fg.deobf("curse.maven:puffish-skills-835091:4568620") // 1.19.2 - 0.4.0
 
+    // Raised
+    compileOnly fg.deobf("curse.maven:raised-570368:4645314") // 1.19.2 - 2.0.0
+
     // # --- Mixin --- #
-    // https://github.com/LlamaLad7/MixinExtras
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
