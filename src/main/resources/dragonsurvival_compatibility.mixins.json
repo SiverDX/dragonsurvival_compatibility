@@ -18,7 +18,7 @@
     "bettercombat.MixinAnimationApplier",
     "bettercombat.MixinPlayer",
     "cold_sweat.MixinTempEffectsClient",
-    "cold_sweat.MixinClientMagicHUDHandler",
+    "cold_sweat.MixinClientMagicHUDHandler_56",
     "jade.MixinJadeHarvestToolProvider",
     "wthitharvestability.MixinHarvestabilityWailaHandler",
     "raised.MixinClientMagicHUDHandler"

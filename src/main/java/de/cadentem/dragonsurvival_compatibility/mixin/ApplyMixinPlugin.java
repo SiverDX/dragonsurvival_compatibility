@@ -1,6 +1,7 @@
 package de.cadentem.dragonsurvival_compatibility.mixin;
 
 import net.minecraftforge.fml.loading.LoadingModList;
+import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -21,7 +22,8 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsClient",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsCommon",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.PreventPlayerSleep",
-            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler"
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler",
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler_56"
     );
 
     private final Set<String> puffish_skills = Set.of(
