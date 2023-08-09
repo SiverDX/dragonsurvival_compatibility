@@ -3,7 +3,7 @@ package de.cadentem.dragonsurvival_compatibility.mixin.jade;
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
-import de.cadentem.dragonsurvival_compatibility.Utils;
+import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
@@ -37,7 +37,7 @@ public abstract class MixinJadeHarvestToolProvider {
     @ModifyVariable(method = "getText", at = @At(value = "STORE"), name = "held", remap = false)
     public ItemStack change(final ItemStack itemStack) {
         if (ClientConfig.ENABLE_JADE.get()) {
-            if (Utils.shouldUseDragonHarvestTools(itemStack)) {
+            if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$accessor.getPlayer());
 
                 if (!handler.isDragon()) {

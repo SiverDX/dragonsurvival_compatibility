@@ -2,7 +2,7 @@ package de.cadentem.dragonsurvival_compatibility.mixin.puffish_skills;
 
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
-import de.cadentem.dragonsurvival_compatibility.Utils;
+import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +18,7 @@ public class MixinMineBlockExperienceSource {
     @ModifyVariable(method = "getValue", at = @At(value = "HEAD"), argsOnly = true, remap = false)
     public ItemStack handleDragonHarvestTool(final ItemStack tool, /* Method parameters: */ final ServerPlayer player, final BlockState blockState) {
         if (ServerConfig.ENABLE_PUFFISH_SKILLS.get()) {
-            if (Utils.shouldUseDragonHarvestTools(tool) && DragonUtils.isDragon(player)) {
+            if (ToolUtils.shouldUseDragonTools(tool) && DragonUtils.isDragon(player)) {
                 ItemStack dragonHarvestTool = ClawToolHandler.getDragonHarvestTool(player, blockState);
 
                 if (dragonHarvestTool == tool) {
