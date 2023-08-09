@@ -22,8 +22,7 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsClient",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinTempEffectsCommon",
             "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.PreventPlayerSleep",
-            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler",
-            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler_56"
+            "de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat.MixinClientMagicHUDHandler"
     );
 
     private final Set<String> puffish_skills = Set.of(
