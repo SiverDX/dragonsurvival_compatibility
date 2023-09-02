@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(TempEffectsClient.class)
+@Mixin(value = TempEffectsClient.class, remap = false)
 public abstract class MixinTempEffectsClient {
     @Shadow static int HOT_IMMUNITY;
     @Shadow static int COLD_IMMUNITY;
@@ -25,24 +25,24 @@ public abstract class MixinTempEffectsClient {
      * <li>Forest dragons have resistance against both temperatures</li>
      * </ul>
      */
-    @Inject(method = "onClientTick", at = @At("RETURN"), remap = false)
+    @Inject(method = "onClientTick", at = @At("RETURN"))
     private static void modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {
         if (/* Seems to be ticked early */ ServerConfig.SPEC.isLoaded() && ServerConfig.ENABLE_COLD_SWEAT.get()) {
             LocalPlayer player = Minecraft.getInstance().player;
 
             if (HOT_IMMUNITY < 4) {
                 if (DragonUtils.isDragonType(player, DragonTypes.CAVE)) {
-                    HOT_IMMUNITY = Math.max(HOT_IMMUNITY, 4);
+                    HOT_IMMUNITY = Math.max(4, HOT_IMMUNITY);
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                    HOT_IMMUNITY = Math.max(2, COLD_IMMUNITY);
+                    HOT_IMMUNITY = Math.min(4, COLD_IMMUNITY + 2);
                 }
             }
 
             if (COLD_IMMUNITY < 4) {
                 if (DragonUtils.isDragonType(player, DragonTypes.SEA)) {
-                    COLD_IMMUNITY = Math.max(COLD_IMMUNITY, 4);
+                    COLD_IMMUNITY = Math.max(4, COLD_IMMUNITY);
                 } else if (DragonUtils.isDragonType(player, DragonTypes.FOREST)) {
-                    COLD_IMMUNITY = Math.max(2, COLD_IMMUNITY);
+                    COLD_IMMUNITY = Math.min(4, COLD_IMMUNITY + 2);
                 }
             }
         }

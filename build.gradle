@@ -112,7 +112,7 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    compileOnly fg.deobf("curse.maven:cold-sweat-506194:4679793") // 1.19.2 - 2.2-b05b
+    compileOnly fg.deobf("curse.maven:cold-sweat-506194:4733187") // 1.19.2 - 2.2-b05d
 
     // Jade Support
     compileOnly fg.deobf("curse.maven:jade-324717:4433884") // 1.19.1 - 8.8.1
@@ -128,7 +128,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:4536108") // 1.19.2 - 5.1.0.9
 
     // Puffish Skills
-    compileOnly fg.deobf("curse.maven:puffish-skills-835091:4568620") // 1.19.2 - 0.4.0
+    compileOnly fg.deobf("curse.maven:puffish-skills-835091:4690957") // 1.19.2 - 0.8.0
 
     // Raised
     compileOnly fg.deobf("curse.maven:raised-570368:4645314") // 1.19.2 - 2.0.0
