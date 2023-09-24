@@ -6,6 +6,10 @@
   "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
+    "apotheosis.MixinOmneticAffix",
+    "apotheosis.MixinRadialAffix",
+    "apotheosis.MixinBlock",
+    "apotheosis.MixinAdventureEvents",
     "cold_sweat.MixinPlayerTempCap",
     "cold_sweat.MixinTempEffectsCommon",
     "cold_sweat.MixinPreventPlayerSleep",

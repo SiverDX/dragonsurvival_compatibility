@@ -1,7 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility.mixin;
 
 import net.minecraftforge.fml.loading.LoadingModList;
-import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -10,6 +9,13 @@ import java.util.List;
 import java.util.Set;
 
 public class ApplyMixinPlugin implements IMixinConfigPlugin {
+    private final Set<String> apotheosis = Set.of(
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinAdventureEvents",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinBlock",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinOmneticAffix",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinRadialAffix"
+    );
+
     private final Set<String> bettercombat = Set.of(
             "de.cadentem.dragonsurvival_compatibility.mixin.bettercombat.MixinAnimationApplier",
             "de.cadentem.dragonsurvival_compatibility.mixin.bettercombat.MixinClientDragonRender",
@@ -34,14 +40,16 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
     public void onLoad(final String mixinPackage) { /* Nothing to do */ }
 
     @Override
-    public String getRefMapperConfig() {
-        /* Nothing to do */
-        return null;
-    }
+    public String getRefMapperConfig() { /* Nothing to do */ return null; }
 
     @Override
     public boolean shouldApplyMixin(final String targetClassName, final String mixinClassName) {
         // `ModList.get()` is not available at this point in time
+
+        if (apotheosis.contains(mixinClassName)) {
+            return LoadingModList.get().getModFileById("apotheosis") != null;
+        }
+
         if (bettercombat.contains(mixinClassName)) {
             return LoadingModList.get().getModFileById("bettercombat") != null;
         }
@@ -73,10 +81,7 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
     public void acceptTargets(final Set<String> myTargets, final Set<String> otherTargets) { /* Nothing to do */ }
 
     @Override
-    public List<String> getMixins() {
-        /* Nothing to do */
-        return null;
-    }
+    public List<String> getMixins() { /* Nothing to do */ return null; }
 
     @Override
     public void preApply(final String targetClassName, final ClassNode targetClass, final String mixinClassName, final IMixinInfo mixinInfo) { /* Nothing to do */ }

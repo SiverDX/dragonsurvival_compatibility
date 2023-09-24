@@ -36,10 +36,10 @@ public class DragonSurvivalCompatibility {
     }
     @SubscribeEvent
     public void reloadConfiguration(final ModConfigEvent.Reloading event) {
-        // FIXME :: Configured does not post an event for server config
         if (event.getConfig().getSpec() == ServerConfig.SPEC) {
-            ServerConfig.ENABLE_UPGRADED_NETHERITE.clearCache();
-            ServerConfig.ENABLE_COLD_SWEAT.clearCache();
+            ServerConfig.SPEC.acceptConfig(event.getConfig().getConfigData());
+
+            DragonSurvivalCompatibility.LOG.info("Config was reloaded");
         }
     }
 }

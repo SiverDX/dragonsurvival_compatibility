@@ -93,21 +93,17 @@ mixin {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Local
-    flatDir { dirs "libs" }
-
-    // CurseForge
-    maven { url "https://cursemaven.com" }
-
-    // Geckolib
-    maven { url "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" }
+    flatDir { dirs "libs" } // Local
+    maven { url "https://jitpack.io" } // Mixin Squared
+    maven { url "https://cursemaven.com" } // CurseForge
+    maven { url "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/" } // GeckoLib
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Core
-    implementation fg.deobf("libs:dragonsurvival:1.19.2-1.5.57")
+    implementation fg.deobf("libs:dragonsurvival:1.19.2-1.5.59")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_mc_version}:${geckolib_version}")
 
     // # --- Mods --- #
@@ -126,6 +122,7 @@ dependencies {
 
     // Upgraded Netherite
     compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:4536108") // 1.19.2 - 5.1.0.9
+    compileOnly fg.deobf("curse.maven:upgraded-core-566700:4411903") // 1.19.2 - 4.1.0.1
 
     // Puffish Skills
     compileOnly fg.deobf("curse.maven:puffish-skills-835091:4690957") // 1.19.2 - 0.8.0
@@ -133,18 +130,33 @@ dependencies {
     // Raised
     compileOnly fg.deobf("curse.maven:raised-570368:4645314") // 1.19.2 - 2.0.0
 
+    // Apotheosis
+    implementation fg.deobf("curse.maven:apotheosis-313970:4730358") // 1.19.2 - 6.4.0
+    implementation fg.deobf("curse.maven:placebo-283644:4759853") // 1.19.2 - 7.3.3
+
     // # --- Mixin --- #
+    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared_version}"))
+    implementation(jarJar("com.github.bawnorton.mixinsquared:mixinsquared-forge:${mixin_squared_version}")) {
+        jarJar.ranged(it, "[${mixin_squared_version},)")
+    }
+
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 
 def replaceProperties = [
-        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-        forge_version: forge_version, forge_version_range: forge_version_range,
+        minecraft_version: minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        forge_version: forge_version,
+        forge_version_range: forge_version_range,
         loader_version_range: loader_version_range,
-        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-        mod_authors: mod_authors, mod_description: mod_description,
+        mod_id: mod_id,
+        mod_name: mod_name,
+        mod_license: mod_license,
+        mod_version: mod_version,
+        mod_authors: mod_authors,
+        mod_description: mod_description,
         dragonsurvival_version_range: dragonsurvival_version_range
 ]
 
