@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
+package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.world.entity.player.Player;

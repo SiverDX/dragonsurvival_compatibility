@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
+package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.core.BlockPos;
@@ -6,7 +6,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import shadows.apotheosis.adventure.affix.effect.OmneticAffix;
 
-@Debug(export = true)
 @Mixin(value = OmneticAffix.class, remap = false)
 public abstract class MixinOmneticAffix {
     @Unique private Player harvest_player;

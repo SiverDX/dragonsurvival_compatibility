@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
+package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.world.entity.player.Player;
@@ -26,7 +26,7 @@ public class MixinAdventureEvents {
     }
 
     @ModifyVariable(method = "blockBreak", at = @At("STORE"), ordinal = 0)
-    public ItemStack harvest_provideDragonTool(final ItemStack itemStack) {
+    public ItemStack blockBreak_provideDragonTool(final ItemStack itemStack) {
         return Utils.getDragonHarvestTool(itemStack, blockBreak_player, blockBreak_blockState);
     }
 }

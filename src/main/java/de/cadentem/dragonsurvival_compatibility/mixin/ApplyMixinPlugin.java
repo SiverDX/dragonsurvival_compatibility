@@ -10,10 +10,14 @@ import java.util.Set;
 
 public class ApplyMixinPlugin implements IMixinConfigPlugin {
     private final Set<String> apotheosis = Set.of(
-            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinAdventureEvents",
-            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinBlock",
-            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinOmneticAffix",
-            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinRadialAffix"
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.MixinAdventureEvents",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.MixinBlock",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.MixinOmneticAffix",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.MixinRadialAffix",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.enchant.MixinChainsawEnchant",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.enchant.MixinEarthsBoonEnchant",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.enchant.MixinMinersFervorEnchant",
+            "de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.MixinBlockUtil"
     );
 
     private final Set<String> bettercombat = Set.of(
