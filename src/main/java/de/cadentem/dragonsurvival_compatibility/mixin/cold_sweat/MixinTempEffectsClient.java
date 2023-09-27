@@ -2,8 +2,8 @@ package de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat;
 
 import by.dragonsurvivalteam.dragonsurvival.common.dragon_types.DragonTypes;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import com.momosoftworks.coldsweat.client.event.TempEffectsClient;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
-import dev.momostudios.coldsweat.client.event.TempEffectsClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraftforge.event.TickEvent;

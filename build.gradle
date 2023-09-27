@@ -108,10 +108,10 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    compileOnly fg.deobf("curse.maven:cold-sweat-506194:4733187") // 1.19.2 - 2.2-b05d
+    compileOnly fg.deobf("curse.maven:cold-sweat-506194:4770582") // 1.19.2 - 2.2
 
     // Jade Support
-    compileOnly fg.deobf("curse.maven:jade-324717:4433884") // 1.19.1 - 8.8.1
+    compileOnly fg.deobf("curse.maven:jade-324717:4719987") // 1.19.1 - 8.9.0
 
     // WTHIT Harvestability Support
     compileOnly fg.deobf("curse.maven:wthit-forge-455982:4576229") // 1.19.2 - 5.16.2
@@ -125,7 +125,7 @@ dependencies {
     compileOnly fg.deobf("curse.maven:upgraded-core-566700:4411903") // 1.19.2 - 4.1.0.1
 
     // Puffish Skills
-    compileOnly fg.deobf("curse.maven:puffish-skills-835091:4690957") // 1.19.2 - 0.8.0
+    compileOnly fg.deobf("curse.maven:puffish-skills-835091:4744360") // 1.19.2 - 0.9.0
 
     // Raised
     compileOnly fg.deobf("curse.maven:raised-570368:4645314") // 1.19.2 - 2.0.0

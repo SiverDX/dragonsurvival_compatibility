@@ -1,5 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
+import de.cadentem.dragonsurvival_compatibility.utils.ApotheosisUtils;
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -13,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import shadows.apotheosis.adventure.affix.Affix;
 import shadows.apotheosis.adventure.affix.effect.OmneticAffix;
 
 @Mixin(value = OmneticAffix.class, remap = false)
@@ -28,7 +30,7 @@ public abstract class MixinOmneticAffix {
 
     @ModifyVariable(method = "harvest", at = @At("STORE"), ordinal = 0)
     public ItemStack harvest_provideDragonTool(final ItemStack itemStack) {
-        return Utils.getDragonHarvestTool(itemStack, harvest_player, harvest_blockState);
+        return ApotheosisUtils.getAffixedDragonHarvestTool(itemStack, harvest_player, harvest_blockState, (Affix) (Object) this);
     }
 
     @Unique private Player speed_player;
@@ -42,7 +44,7 @@ public abstract class MixinOmneticAffix {
 
     @ModifyVariable(method = "speed", at = @At("STORE"), ordinal = 0)
     public ItemStack speed_provideDragonTool(final ItemStack itemStack) {
-        return Utils.getDragonHarvestTool(itemStack, speed_player, speed_blockState);
+        return ApotheosisUtils.getAffixedDragonHarvestTool(itemStack, speed_player, speed_blockState, (Affix) (Object) this);
     }
 
     @Unique private static Player getBaseSpeed_player;

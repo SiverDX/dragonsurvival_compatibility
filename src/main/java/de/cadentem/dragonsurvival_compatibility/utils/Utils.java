@@ -12,9 +12,11 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class Utils {
     public static ItemStack getDragonHarvestTool(final ItemStack original, final Player player, final BlockState blockState) {
-        if (player != null && blockState != null) {
-            DragonStateHandler handler = DragonUtils.getHandler(player);
+        return getDragonHarvestTool(original, player, blockState, DragonUtils.getHandler(player));
+    }
 
+    public static ItemStack getDragonHarvestTool(final ItemStack original, final Player player, final BlockState blockState, final DragonStateHandler handler) {
+        if (player != null && blockState != null) {
             if (handler.isDragon()) {
                 SimpleContainer clawsInventory = handler.getClawToolData().getClawsInventory();
 

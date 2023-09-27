@@ -2,11 +2,11 @@ package de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat;
 
 import by.dragonsurvivalteam.dragonsurvival.common.dragon_types.DragonTypes;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
+import com.momosoftworks.coldsweat.common.capability.ITemperatureCap;
+import com.momosoftworks.coldsweat.common.capability.PlayerTempCap;
+import com.momosoftworks.coldsweat.config.ConfigSettings;
+import com.momosoftworks.coldsweat.util.registries.ModDamageSources;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
-import dev.momostudios.coldsweat.common.capability.ITemperatureCap;
-import dev.momostudios.coldsweat.common.capability.PlayerTempCap;
-import dev.momostudios.coldsweat.config.ConfigSettings;
-import dev.momostudios.coldsweat.util.registries.ModDamageSources;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
