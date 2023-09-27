@@ -103,7 +103,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Core
-    implementation fg.deobf("libs:dragonsurvival:1.19.2-1.5.59")
+    implementation fg.deobf("libs:dragonsurvival:${dragonsurvival_version}")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-${geckolib_mc_version}:${geckolib_version}")
 
     // # --- Mods --- #

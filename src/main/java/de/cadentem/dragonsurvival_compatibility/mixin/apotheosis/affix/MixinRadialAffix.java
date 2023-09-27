@@ -1,5 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
+import de.cadentem.dragonsurvival_compatibility.utils.ApotheosisUtils;
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -11,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import shadows.apotheosis.adventure.affix.Affix;
 import shadows.apotheosis.adventure.affix.effect.RadialAffix;
 
 @Mixin(value = RadialAffix.class, remap = false)
@@ -26,6 +28,6 @@ public class MixinRadialAffix {
 
     @ModifyVariable(method = "onBreak", at = @At("STORE"), ordinal = 0)
     public ItemStack harvest_provideDragonTool(final ItemStack itemStack) {
-        return Utils.getDragonHarvestTool(itemStack, onBreak_player, onBreak_blockState);
+        return ApotheosisUtils.getAffixedDragonHarvestTool(itemStack, onBreak_player, onBreak_blockState, (Affix) (Object) this);
     }
 }

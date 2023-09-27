@@ -42,7 +42,7 @@ public abstract class MixinHarvestabilityWailaHandler {
             if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$player);
 
-                if (!handler.isDragon()) {
+                if (!handler.isDragon() || handler.switchedTool) {
                     return itemStack;
                 }
 

@@ -40,7 +40,7 @@ public abstract class MixinJadeHarvestToolProvider {
             if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$accessor.getPlayer());
 
-                if (!handler.isDragon()) {
+                if (!handler.isDragon() || handler.switchedTool) {
                     return itemStack;
                 }
 

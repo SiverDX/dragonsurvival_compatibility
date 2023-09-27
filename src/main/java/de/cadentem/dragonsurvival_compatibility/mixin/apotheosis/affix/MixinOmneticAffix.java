@@ -1,8 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
 import de.cadentem.dragonsurvival_compatibility.utils.ApotheosisUtils;
-import de.cadentem.dragonsurvival_compatibility.utils.Utils;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
@@ -13,7 +11,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import shadows.apotheosis.adventure.affix.Affix;
 import shadows.apotheosis.adventure.affix.effect.OmneticAffix;
 
@@ -47,6 +44,7 @@ public abstract class MixinOmneticAffix {
         return ApotheosisUtils.getAffixedDragonHarvestTool(itemStack, speed_player, speed_blockState, (Affix) (Object) this);
     }
 
+    /*
     @Unique private static Player getBaseSpeed_player;
     @Unique private static BlockState getBaseSpeed_blockState;
 
@@ -60,4 +58,6 @@ public abstract class MixinOmneticAffix {
     private static ItemStack getBaseSpeed_provideDragonTool(final ItemStack itemStack) {
         return Utils.getDragonHarvestTool(itemStack, getBaseSpeed_player, getBaseSpeed_blockState);
     }
+
+    */
 }

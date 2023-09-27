@@ -20,7 +20,7 @@ public abstract class MixinPlayer {
             DragonStateHandler handler = DragonUtils.getHandler(player);
 
             // Only need to overwrite the value if the items were switched out (= dragon claw sword was used)
-            if (handler.switchedItems) {
+            if (handler.switchedWeapon) {
                 return player.getMainHandItem().canPerformAction(ToolActions.SWORD_SWEEP);
             }
         }

@@ -7,6 +7,7 @@ import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -18,6 +19,11 @@ public class Utils {
     public static ItemStack getDragonHarvestTool(final ItemStack original, final Player player, final BlockState blockState, final DragonStateHandler handler) {
         if (player != null && blockState != null) {
             if (handler.isDragon()) {
+
+                if (handler.switchedTool) {
+                    return original;
+                }
+
                 SimpleContainer clawsInventory = handler.getClawToolData().getClawsInventory();
 
                 if (!ToolUtils.shouldUseDragonTools(original)) {
@@ -51,5 +57,9 @@ public class Utils {
         }
 
         return result;
+    }
+
+    public static float getHarvestSpeed(final ItemStack itemStack, final BlockState blockState) {
+        return itemStack.getItem() instanceof DiggerItem diggerItem ? diggerItem.getDestroySpeed(itemStack, blockState) : itemStack.getDestroySpeed(blockState);
     }
 }

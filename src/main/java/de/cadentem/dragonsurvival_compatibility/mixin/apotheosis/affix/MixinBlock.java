@@ -27,7 +27,7 @@ public abstract class MixinBlock {
     @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
     @Inject(method = "@MixinSquared:Handler", at = @At(value = "HEAD"))
     private static void storeData(final BlockState blockState, final Level level, final BlockPos blockPosition, @Nullable final BlockEntity blockEntity, final Entity entity, final ItemStack tool, final CallbackInfo original, final CallbackInfo callback) {
-        if (entity instanceof  Player player) {
+        if (entity instanceof Player player) {
             dragonsurvival_compatibility$storedPlayer = player;
             dragonsurvival_compatibility$storedBlockState = blockState;
         }
