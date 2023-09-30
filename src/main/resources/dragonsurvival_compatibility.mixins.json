@@ -8,6 +8,8 @@
   "mixins": [
     "apotheosis.affix.MixinBlock",
     "apotheosis.MixinClawToolHandler",
+    "apotheosis.affix.OmneticAffixAccessor",
+    "apotheosis.affix.OmneticDataAccessor",
     "cold_sweat.MixinPlayerTempCap",
     "cold_sweat.MixinTempEffectsCommon",
     "cold_sweat.MixinPreventPlayerSleep",

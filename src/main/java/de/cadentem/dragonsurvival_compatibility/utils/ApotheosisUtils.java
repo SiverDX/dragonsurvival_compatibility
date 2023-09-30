@@ -4,14 +4,14 @@ import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import com.mojang.datafixers.util.Pair;
+import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.OmneticAffixAccessor;
+import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.OmneticDataAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import org.jetbrains.annotations.NotNull;
-import org.spongepowered.asm.mixin.Unique;
 import shadows.apotheosis.adventure.affix.Affix;
 import shadows.apotheosis.adventure.affix.AffixHelper;
 import shadows.apotheosis.adventure.affix.AffixInstance;
@@ -82,12 +82,26 @@ public class ApotheosisUtils {
 
         for (Affix key : affixes.keySet()) {
             if (key instanceof OmneticAffix omneticAffix) {
-                PlayerEvent.BreakSpeed breakSpeed = new PlayerEvent.BreakSpeed(player, blockState, baseSpeed, null);
-                omneticAffix.speed(breakSpeed);
-                return breakSpeed.getNewSpeed();
+                return getOmneticSpeed(player, itemStack, blockState, omneticAffix, baseSpeed);
             }
         }
 
         return baseSpeed;
+    }
+
+    public static float getOmneticSpeed(final Player player, final ItemStack itemStack, final BlockState blockState, final OmneticAffix affix, float speed) {
+        if (!itemStack.isEmpty()) {
+            AffixInstance affixInstance = AffixHelper.getAffixes(itemStack).get(affix);
+
+            if (affixInstance != null) {
+                OmneticDataAccessor omneticData = ((OmneticAffixAccessor) affix).getValues().get(affixInstance.rarity());
+
+                for (ItemStack omneticItem : omneticData.getItems()) {
+                    speed = Math.max(OmneticAffixAccessor.getBaseSpeed(player, omneticItem, blockState, BlockPos.ZERO), speed);
+                }
+            }
+        }
+
+        return speed;
     }
 }
