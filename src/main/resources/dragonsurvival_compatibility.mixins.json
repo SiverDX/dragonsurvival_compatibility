@@ -14,7 +14,8 @@
     "cold_sweat.MixinTempEffectsCommon",
     "cold_sweat.MixinPreventPlayerSleep",
     "puffish_skills.MixinMineBlockExperienceSource",
-    "puffish_skills.MixinClawToolHandler"
+    "puffish_skills.MixinClawToolHandler",
+    "forbidden_arcanus.MixinServerPlayerGameMode"
   ],
   "client": [
     "bettercombat.MixinClientDragonRender",
@@ -25,6 +26,6 @@
     "cold_sweat.MixinClientMagicHUDHandler",
     "jade.MixinJadeHarvestToolProvider",
     "wthitharvestability.MixinHarvestabilityWailaHandler",
-    "raised.MixinClientMagicHUDHandler"
+    "forbidden_arcanus.MixinMultiPlayerGameMode"
   ]
 }

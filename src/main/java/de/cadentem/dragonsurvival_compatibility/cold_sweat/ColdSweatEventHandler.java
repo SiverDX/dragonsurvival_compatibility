@@ -21,7 +21,7 @@ public class ColdSweatEventHandler {
     // FIXME :: What if the player disabled the effect of these granting immunity?
     @SubscribeEvent(priority = EventPriority.HIGH) // Tick before Cold Sweat
     public static void onPlayerTick(final TickEvent.PlayerTickEvent event) {
-        if (ServerConfig.ENABLE_COLD_SWEAT.get() && event.player.tickCount % 20 == 0) {
+        if (ServerConfig.COLD_SWEAT.get() && event.player.tickCount % 20 == 0) {
             if (event.phase == TickEvent.Phase.END) {
                 MobEffectInstance iceResistance = event.player.getEffect(ModEffects.ICE_RESISTANCE);
                 MobEffectInstance fireResistance = event.player.getEffect(MobEffects.FIRE_RESISTANCE);

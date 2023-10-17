@@ -23,7 +23,7 @@ public abstract class MixinPlayerTempCap implements ITemperatureCap {
      */
     @Override
     public void dealTempDamage(final LivingEntity target, final DamageSource source, float amount) {
-        if (ServerConfig.ENABLE_COLD_SWEAT.get()) {
+        if (ServerConfig.COLD_SWEAT.get()) {
             if (target instanceof Player player) {
                 if (DragonUtils.isDragonType(player, DragonTypes.CAVE) && source == ModDamageSources.HOT) {
                     return;

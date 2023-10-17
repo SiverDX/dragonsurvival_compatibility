@@ -26,7 +26,7 @@ public class UpgradedNetheriteEventHandler {
     /** Need to run before the original check (since it will drop the Echo Armor, meaning we cannot check if we have the set equipped) */
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onLivingDeathEvent(final LivingDeathEvent event) {
-        if (ServerConfig.ENABLE_UPGRADED_NETHERITE.get()) {
+        if (ServerConfig.UPGRADED_NETHERITE.get()) {
             if (event.getEntity() instanceof Player player && (UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance)) {
                 String uuid = player.getStringUUID();
                 storedDragonClawInventory.remove(uuid);
@@ -62,7 +62,7 @@ public class UpgradedNetheriteEventHandler {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onPlayerRespawnEvent(final PlayerRespawnEvent event) {
-        if (ServerConfig.ENABLE_UPGRADED_NETHERITE.get()) {
+        if (ServerConfig.UPGRADED_NETHERITE.get()) {
             if (UpgradedNetheriteConfig.EnableSoulbound || UpgradedNetheriteConfig.EnableKeepItemsChance) {
                 Player player = event.getEntity();
                 String uuid = player.getStringUUID();

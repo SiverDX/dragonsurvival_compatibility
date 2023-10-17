@@ -36,7 +36,7 @@ public abstract class MixinJadeHarvestToolProvider {
     /** @reason Give Jade the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getText", at = @At(value = "STORE"), name = "held", remap = false)
     public ItemStack change(final ItemStack itemStack) {
-        if (ClientConfig.ENABLE_JADE.get()) {
+        if (ClientConfig.JADE.get()) {
             if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$accessor.getPlayer());
 

@@ -17,7 +17,7 @@ public abstract class MixinClientDragonRender {
     /** @reason Render the Better Combat attack animation (but not the player skin) */
     @Inject(method = "thirdPersonPreRender", at = @At("HEAD"), cancellable = true, remap = false)
     private static void modifyRender(final RenderPlayerEvent.Pre renderPlayerEvent, final CallbackInfo callback) {
-        if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {
+        if (ClientConfig.BETTERCOMBAT.get()) {
             if (!(renderPlayerEvent.getEntity() instanceof AbstractClientPlayer player)) {
                 return;
             }

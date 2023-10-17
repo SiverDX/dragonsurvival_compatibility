@@ -14,7 +14,7 @@ public abstract class MixinPlayer {
     /** @reason Re-enable sweeping for dragons when Better Combat is installed since it currently does not work with the dragon claw slot */
     @ModifyVariable(method = "attack", at = @At("STORE"), ordinal = 3)
     private boolean reEnableSweeping(boolean value) {
-        if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {
+        if (ClientConfig.BETTERCOMBAT.get()) {
             Object self = this;
             Player player = (Player) self;
             DragonStateHandler handler = DragonUtils.getHandler(player);

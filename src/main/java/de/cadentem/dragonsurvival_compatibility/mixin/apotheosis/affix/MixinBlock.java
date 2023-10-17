@@ -1,6 +1,7 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
 
 import com.bawnorton.mixinsquared.TargetHandler;
+import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -27,6 +28,10 @@ public abstract class MixinBlock {
     @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
     @Inject(method = "@MixinSquared:Handler", at = @At(value = "HEAD"))
     private static void storeData(final BlockState blockState, final Level level, final BlockPos blockPosition, @Nullable final BlockEntity blockEntity, final Entity entity, final ItemStack tool, final CallbackInfo original, final CallbackInfo callback) {
+        if (!ServerConfig.APOTHEOSIS.get()) {
+            return;
+        }
+
         if (entity instanceof Player player) {
             dragonsurvival_compatibility$storedPlayer = player;
             dragonsurvival_compatibility$storedBlockState = blockState;
@@ -36,6 +41,10 @@ public abstract class MixinBlock {
     @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
     @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/adventure/affix/AffixHelper;getAffixes(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;"))
     private static ItemStack changeTool(final ItemStack itemStack) {
+        if (!ServerConfig.APOTHEOSIS.get()) {
+            return itemStack;
+        }
+
         ItemStack result = Utils.getDragonHarvestTool(itemStack, dragonsurvival_compatibility$storedPlayer, dragonsurvival_compatibility$storedBlockState);
 
         dragonsurvival_compatibility$storedPlayer = null;

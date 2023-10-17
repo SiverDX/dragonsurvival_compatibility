@@ -20,7 +20,7 @@ public abstract class MixinPreventPlayerSleep {
     /** Allow dragons to sleep in certain temperature conditions */
     @Inject(method = "onTrySleep", at = @At(value = "HEAD"), cancellable = true, remap = false)
     private static void sleepForDragonCheck(final PlayerSleepInBedEvent event, final CallbackInfo callback) {
-        if (ServerConfig.ENABLE_COLD_SWEAT.get()) {
+        if (ServerConfig.COLD_SWEAT.get()) {
             if (event.getResultStatus() == null && ConfigSettings.CHECK_SLEEP_CONDITIONS.get()) {
                 Player player = event.getEntity();
 

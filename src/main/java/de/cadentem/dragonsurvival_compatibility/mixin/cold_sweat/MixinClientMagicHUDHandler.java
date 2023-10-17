@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinClientMagicHUDHandler {
     @Inject(method = "lambda$cancelExpBar$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Font;draw(Lcom/mojang/blaze3d/vertex/PoseStack;Ljava/lang/String;FFI)I", shift = At.Shift.BEFORE, ordinal = 0))
     private static void renderExperienceBar1(final Player player, final ForgeGui gui, final PoseStack poseStack, int x, final DragonStateHandler handler, final CallbackInfo callback) {
-        if (ClientConfig.ENABLE_COLD_SWEAT.get()) {
+        if (ClientConfig.COLD_SWEAT.get()) {
             // Render XP bar
             if (ClientSettingsConfig.getInstance().customHotbarEnabled()) {
                 poseStack.translate(0.0D, 4.0D, 0.0D);
@@ -26,7 +26,7 @@ public class MixinClientMagicHUDHandler {
 
     @Inject(method = "lambda$cancelExpBar$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Font;draw(Lcom/mojang/blaze3d/vertex/PoseStack;Ljava/lang/String;FFI)I", shift = At.Shift.AFTER, ordinal = 4))
     private static void renderExperienceBar2(final Player player, final ForgeGui gui, final PoseStack poseStack, int x, final DragonStateHandler handler, final CallbackInfo callback) {
-        if (ClientConfig.ENABLE_COLD_SWEAT.get()) {
+        if (ClientConfig.COLD_SWEAT.get()) {
             // Render XP bar
             if (ClientSettingsConfig.getInstance().customHotbarEnabled()) {
                 poseStack.translate(0.0D, -4.0D, 0.0D);

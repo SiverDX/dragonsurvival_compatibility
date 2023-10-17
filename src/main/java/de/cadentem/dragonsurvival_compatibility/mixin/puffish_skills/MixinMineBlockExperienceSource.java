@@ -17,7 +17,7 @@ public class MixinMineBlockExperienceSource {
     /** Enable experience gain for dragon harvest tools */
     @ModifyVariable(method = "getValue", at = @At(value = "HEAD"), argsOnly = true, remap = false)
     public ItemStack handleDragonHarvestTool(final ItemStack tool, /* Method parameters: */ final ServerPlayer player, final BlockState blockState) {
-        if (ServerConfig.ENABLE_PUFFISH_SKILLS.get()) {
+        if (ServerConfig.PUFFISH_SKILLS.get()) {
             if (ToolUtils.shouldUseDragonTools(tool) && DragonUtils.isDragon(player)) {
                 ItemStack dragonHarvestTool = ClawToolHandler.getDragonHarvestTool(player, blockState);
 

@@ -38,7 +38,7 @@ public abstract class MixinHarvestabilityWailaHandler {
     /** @reason Give WTHIT the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getHarvestability", at = @At(value = "STORE"), name = "heldStack", remap = false)
     public ItemStack change(final ItemStack itemStack) {
-        if (ClientConfig.ENABLE_WTHITHARVESTABILITY.get()) {
+        if (ClientConfig.WTHITHARVESTABILITY.get()) {
             if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$player);
 

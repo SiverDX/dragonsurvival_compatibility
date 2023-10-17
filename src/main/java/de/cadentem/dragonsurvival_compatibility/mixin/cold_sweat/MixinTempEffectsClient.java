@@ -27,7 +27,7 @@ public abstract class MixinTempEffectsClient {
      */
     @Inject(method = "onClientTick", at = @At("RETURN"))
     private static void modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {
-        if (/* Seems to be ticked early */ ServerConfig.SPEC.isLoaded() && ServerConfig.ENABLE_COLD_SWEAT.get()) {
+        if (/* Seems to be ticked early */ ServerConfig.SPEC.isLoaded() && ServerConfig.COLD_SWEAT.get()) {
             LocalPlayer player = Minecraft.getInstance().player;
 
             if (HOT_IMMUNITY < 4) {

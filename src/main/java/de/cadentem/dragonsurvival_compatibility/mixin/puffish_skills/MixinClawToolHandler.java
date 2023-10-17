@@ -14,7 +14,7 @@ public class MixinClawToolHandler {
     /** Re-enable the attribute modifiers when you're a dragon */
     @ModifyVariable(method = "modifyBreakSpeed", at = @At(value = "STORE", target = "Lnet/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed;setNewSpeed(F)V"), remap = false)
     public float applyAttribute(float value, /* Method parameters */ final PlayerEvent.BreakSpeed event) {
-        if (ServerConfig.ENABLE_PUFFISH_SKILLS.get()) {
+        if (ServerConfig.PUFFISH_SKILLS.get()) {
             EntityAttributeInstanceAccess attribute = (EntityAttributeInstanceAccess) event.getEntity().getAttribute(PlayerAttributes.MINING_SPEED);
 
             if (attribute != null) {

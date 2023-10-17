@@ -5,7 +5,7 @@ import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandle
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import com.mojang.datafixers.util.Pair;
-import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
+import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import de.cadentem.dragonsurvival_compatibility.utils.ApotheosisUtils;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
@@ -21,6 +21,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class MixinClawToolHandler {
     @Inject(method = "getDragonHarvestToolAndSlot", at = @At("HEAD"), cancellable = true)
     private static void getAffixedDragonHarvestToolAndSlot(final Player player, final BlockState blockState, final CallbackInfoReturnable<Pair<ItemStack, Integer>> callback) {
+        if (!ServerConfig.APOTHEOSIS.get()) {
+            return;
+        }
+
         DragonStateHandler handler = DragonUtils.getHandler(player);
 
         if (handler.isDragon()) {
@@ -48,9 +52,9 @@ public class MixinClawToolHandler {
 
                 boolean switchItems = false;
 
-                if (!ClientConfig.PREFER_HARVEST_SPEED.get() && affixes.getSecond() > compareRadialLevel) {
+                if (clawToolHarvestSpeed > compareHarvestSpeed) {
                     switchItems = true;
-                } else if (clawToolHarvestSpeed > compareHarvestSpeed) {
+                } else if (affixes.getSecond() > compareRadialLevel) {
                     switchItems = true;
                 }
 

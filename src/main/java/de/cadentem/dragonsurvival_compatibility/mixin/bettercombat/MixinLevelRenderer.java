@@ -23,7 +23,7 @@ public abstract class MixinLevelRenderer {
 
     @Inject(method = "renderLevel", at = @At(value = "HEAD"))
     public void tes2t(final PoseStack poseStack, float partialTick, long finishNanoTime, boolean renderBlockOutline, final Camera camera, final GameRenderer gameRenderer, final LightTexture lightTexture, final Matrix4f projectionMatrix, final CallbackInfo ci) {
-        if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {
+        if (ClientConfig.BETTERCOMBAT.get()) {
             if (Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
                 dragonsurvival_compatibility$renderInFirstPerson = ClientDragonRender.renderInFirstPerson;
                 ClientDragonRender.renderInFirstPerson = false;
@@ -33,7 +33,7 @@ public abstract class MixinLevelRenderer {
 
     @Inject(method = "renderLevel", at = @At(value = "RETURN"))
     public void test2(final PoseStack poseStack, float partialTick, long finishNanoTime, boolean renderBlockOutline, final Camera camera, final GameRenderer gameRenderer, final LightTexture lightTexture, final Matrix4f projectionMatrix, final CallbackInfo ci) {
-        if (ClientConfig.ENABLE_BETTERCOMBAT.get()) {
+        if (ClientConfig.BETTERCOMBAT.get()) {
             if (Minecraft.getInstance().options.getCameraType().isFirstPerson()) {
                 ClientDragonRender.renderInFirstPerson = dragonsurvival_compatibility$renderInFirstPerson;
             }
