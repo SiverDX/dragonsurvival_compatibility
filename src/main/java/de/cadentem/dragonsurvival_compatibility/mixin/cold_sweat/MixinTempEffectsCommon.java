@@ -13,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(TempEffectsCommon.class)
 public abstract class MixinTempEffectsCommon {
+    @SuppressWarnings("unused")
     @WrapOperation(method = {"onPlayerMine", "onPlayerTick", "onPlayerKnockback", "onHeal"}, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Player;hasEffect(Lnet/minecraft/world/effect/MobEffect;)Z", ordinal = 0))
     private static boolean dragonsurvival_compatibility$fakeIceResistance(final Player instance, final MobEffect effect, final Operation<Boolean> original) {
         if (ServerConfig.COLD_SWEAT.get()) {

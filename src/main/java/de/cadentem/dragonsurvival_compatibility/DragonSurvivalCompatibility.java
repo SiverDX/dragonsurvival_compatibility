@@ -1,7 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility;
 
 import com.mojang.logging.LogUtils;
-import de.cadentem.dragonsurvival_compatibility.cold_sweat.ColdSweatEventHandler;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import de.cadentem.dragonsurvival_compatibility.upgradednetherite.UpgradedNetheriteEventHandler;
@@ -28,10 +27,6 @@ public class DragonSurvivalCompatibility {
 
         if (ModList.get().isLoaded("upgradednetherite")) {
             MinecraftForge.EVENT_BUS.register(new UpgradedNetheriteEventHandler());
-        }
-
-        if (ModList.get().isLoaded("cold_sweat")) {
-//            MinecraftForge.EVENT_BUS.register(ColdSweatEventHandler.class);
         }
     }
     @SubscribeEvent
