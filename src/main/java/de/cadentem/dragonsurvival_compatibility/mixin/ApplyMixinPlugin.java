@@ -27,7 +27,7 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
         if (!modid.isBlank()) {
             if (modid.equals("raised")) {
                 ModFileInfo modFile = LoadingModList.get().getModFileById(modid);
-                if (modFile.getMods() != null && modFile.getMods().get(0) != null) {
+                if (modFile != null && modFile.getMods() != null && modFile.getMods().get(0) != null) {
                     return modFile.getMods().get(0).getVersion().getMajorVersion() == 2;
                 }
             }
