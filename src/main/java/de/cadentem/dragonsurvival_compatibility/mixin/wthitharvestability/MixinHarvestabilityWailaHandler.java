@@ -30,14 +30,14 @@ public abstract class MixinHarvestabilityWailaHandler {
 
     /** @reason Get {@link Player} and {@link BlockState} */
     @Inject(method = "getHarvestability", at = @At("HEAD"), remap = false)
-    public void getPlayer(final List<Component> stringList, final Player player, final BlockState blockState, final BlockPos pos, final mcp.mobius.waila.api.IPluginConfig config, boolean minimalLayout, CallbackInfo callback) {
+    public void dragonsurvival_compatibility$getPlayer(final List<Component> stringList, final Player player, final BlockState blockState, final BlockPos pos, final mcp.mobius.waila.api.IPluginConfig config, boolean minimalLayout, CallbackInfo callback) {
         this.dragonsurvival_compatibility$player = player;
         this.dragonsurvival_compatibility$blockState = blockState;
     }
 
     /** @reason Give WTHIT the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getHarvestability", at = @At(value = "STORE"), name = "heldStack", remap = false)
-    public ItemStack change(final ItemStack itemStack) {
+    public ItemStack dragonsurvival_compatibility$change(final ItemStack itemStack) {
         if (ClientConfig.WTHITHARVESTABILITY.get()) {
             if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$player);

@@ -14,10 +14,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(MineBlockExperienceSource.class)
-public class MixinMineBlockExperienceSource {
+public abstract class MixinMineBlockExperienceSource {
     /** Enable experience gain for dragon harvest tools */
     @ModifyVariable(method = "getValue", at = @At(value = "HEAD"), argsOnly = true, remap = false)
-    public ItemStack handleDragonHarvestTool(final ItemStack tool, /* Method parameters: */ final ServerPlayer player, final BlockState blockState) {
+    public ItemStack dragonsurvival_compatibility$handleDragonHarvestTool(final ItemStack tool, /* Method parameters: */ final ServerPlayer player, final BlockState blockState) {
         if (ServerConfig.PUFFISH_SKILLS.get()) {
             if (ToolUtils.shouldUseDragonTools(tool)) {
                 DragonStateHandler handler = DragonUtils.getHandler(player);

@@ -15,9 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = TempEffectsClient.class, remap = false)
 public abstract class MixinTempEffectsClient {
-    @Shadow static int HOT_IMMUNITY;
-    @Shadow static int COLD_IMMUNITY;
-
     /** @reason Modifies the effect of temperatures on the dragon types
      * <ul>
      * <li>Cave dragons have no negative effects from high temperature</li>
@@ -26,7 +23,7 @@ public abstract class MixinTempEffectsClient {
      * </ul>
      */
     @Inject(method = "onClientTick", at = @At("RETURN"))
-    private static void modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {
+    private static void dragonsurvival_compatibility$modifyImmunity(final TickEvent.ClientTickEvent event, final CallbackInfo callback) {
         if (/* Seems to be ticked early */ ServerConfig.SPEC.isLoaded() && ServerConfig.COLD_SWEAT.get()) {
             LocalPlayer player = Minecraft.getInstance().player;
 
@@ -47,4 +44,7 @@ public abstract class MixinTempEffectsClient {
             }
         }
     }
+
+    @Shadow static int HOT_IMMUNITY;
+    @Shadow static int COLD_IMMUNITY;
 }

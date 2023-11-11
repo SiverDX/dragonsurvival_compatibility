@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class MixinAnimationApplier {
     /** @reason Adjust the Better Combat attack animation to the dragon size */
     @Inject(method = "updatePart", at = @At("TAIL"), remap = false)
-    public void offsetAttackAnimation(final String partName, final ModelPart part, final CallbackInfo callback) {
+    public void dragonsurvival_compatibility$offsetAttackAnimation(final String partName, final ModelPart part, final CallbackInfo callback) {
         if (ClientConfig.BETTERCOMBAT.get()) {
             Minecraft instance = Minecraft.getInstance();
             Player player = instance.player;

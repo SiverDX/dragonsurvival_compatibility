@@ -27,7 +27,7 @@ public abstract class MixinBlock {
 
     @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
     @Inject(method = "@MixinSquared:Handler", at = @At(value = "HEAD"))
-    private static void storeData(final BlockState blockState, final Level level, final BlockPos blockPosition, @Nullable final BlockEntity blockEntity, final Entity entity, final ItemStack tool, final CallbackInfo original, final CallbackInfo callback) {
+    private static void dragonsurvival_compatibility$storeData(final BlockState blockState, final Level level, final BlockPos blockPosition, @Nullable final BlockEntity blockEntity, final Entity entity, final ItemStack tool, final CallbackInfo original, final CallbackInfo callback) {
         if (!ServerConfig.APOTHEOSIS.get()) {
             return;
         }
@@ -40,7 +40,7 @@ public abstract class MixinBlock {
 
     @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
     @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/adventure/affix/AffixHelper;getAffixes(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;"))
-    private static ItemStack changeTool(final ItemStack itemStack) {
+    private static ItemStack dragonsurvival_compatibility$changeTool(final ItemStack itemStack) {
         if (!ServerConfig.APOTHEOSIS.get()) {
             return itemStack;
         }

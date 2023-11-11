@@ -8,9 +8,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(ClientMagicHUDHandler.class)
-public class MixinClientMagicHUDHandler {
+public abstract class MixinClientMagicHUDHandler {
     @ModifyArg(method = "lambda$cancelExpBar$0", at = @At(value = "INVOKE", target = "Lby/dragonsurvivalteam/dragonsurvival/client/handlers/magic/ClientMagicHUDHandler;blit(Lcom/mojang/blaze3d/vertex/PoseStack;IIIIII)V"), index = 2)
-    private static int modifyExperienceBar(int value) {
+    private static int dragonsurvival_compatibility$modifyExperienceBar(int value) {
         if (ClientConfig.RAISED.get()) {
             return value - Raised.getHud();
         }
@@ -19,7 +19,7 @@ public class MixinClientMagicHUDHandler {
     }
 
     @ModifyArg(method = "lambda$cancelExpBar$0", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Font;draw(Lcom/mojang/blaze3d/vertex/PoseStack;Ljava/lang/String;FFI)I"), index = 3)
-    private static float modifyXpText(float value) {
+    private static float dragonsurvival_compatibility$modifyXpText(float value) {
         if (ClientConfig.RAISED.get()) {
             return value - (float) Raised.getHud();
         }

@@ -29,13 +29,13 @@ public abstract class MixinJadeHarvestToolProvider {
 
     /** @reason Get {@link net.minecraft.world.entity.player.Player} and {@link net.minecraft.world.level.block.state.BlockState} */
     @Inject(method = "getText", at = @At("HEAD"), remap = false)
-    public void getAccesor(final BlockAccessor accessor, final IPluginConfig config, final IElementHelper helper, final CallbackInfoReturnable<List<IElement>> callback) {
+    public void dragonsurvival_compatibility$getAccesor(final BlockAccessor accessor, final IPluginConfig config, final IElementHelper helper, final CallbackInfoReturnable<List<IElement>> callback) {
         this.dragonsurvival_compatibility$accessor = accessor;
     }
 
     /** @reason Give Jade the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getText", at = @At(value = "STORE"), name = "held", remap = false)
-    public ItemStack change(final ItemStack itemStack) {
+    public ItemStack dragonsurvival_compatibility$change(final ItemStack itemStack) {
         if (ClientConfig.JADE.get()) {
             if (ToolUtils.shouldUseDragonTools(itemStack)) {
                 DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$accessor.getPlayer());
