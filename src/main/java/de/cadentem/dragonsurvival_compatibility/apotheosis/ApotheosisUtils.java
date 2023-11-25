@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.utils;
+package de.cadentem.dragonsurvival_compatibility.apotheosis;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
@@ -6,6 +6,7 @@ import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import com.mojang.datafixers.util.Pair;
 import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.OmneticAffixAccessor;
 import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.OmneticDataAccessor;
+import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
