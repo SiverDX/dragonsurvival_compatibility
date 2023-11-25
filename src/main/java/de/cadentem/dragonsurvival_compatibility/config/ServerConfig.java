@@ -25,9 +25,9 @@ public class ServerConfig {
 
         for (String dragonType : dragonTypes) {
             BUILDER.push(dragonType.toUpperCase());
-            ForgeConfigSpec.DoubleValue coldResistance = BUILDER.comment("Innate cold resistance").defineInRange("cold_resistance", dragonType.equals("sea") ? 1.0 : dragonType.equals("forest") ? 0.2 : 0, 0, 1);
+            ForgeConfigSpec.DoubleValue coldResistance = BUILDER.comment("Innate cold resistance").defineInRange("cold_resistance", dragonType.equals("sea") ? 1.0 : dragonType.equals("forest") ? 0.3 : 0, 0, 1);
             ForgeConfigSpec.DoubleValue coldDampening = BUILDER.comment("Innate cold dampening").defineInRange("cold_dampening", dragonType.equals("forest") ? 0.2 : 0, -1024, 1);
-            ForgeConfigSpec.DoubleValue heatResistance = BUILDER.comment("Innate heat resistance").defineInRange("heat_resistance", dragonType.equals("cave") ? 1.0 : dragonType.equals("forest") ? 0.2 : 0, 0, 1);
+            ForgeConfigSpec.DoubleValue heatResistance = BUILDER.comment("Innate heat resistance").defineInRange("heat_resistance", dragonType.equals("cave") ? 1.0 : dragonType.equals("forest") ? 0.3 : 0, 0, 1);
             ForgeConfigSpec.DoubleValue heatDampening = BUILDER.comment("Innate heat dampening").defineInRange("heat_dampening", dragonType.equals("forest") ? 0.2 : 0, -1024, 1);
             COLD_SWEAT_ATTRIBUTES.put(dragonType, new ForgeConfigSpec.DoubleValue[]{coldResistance, coldDampening, heatResistance, heatDampening});
             BUILDER.pop();

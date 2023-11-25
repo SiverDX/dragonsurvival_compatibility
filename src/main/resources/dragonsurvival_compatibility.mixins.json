@@ -10,7 +10,6 @@
     "apotheosis.MixinClawToolHandler",
     "apotheosis.affix.OmneticAffixAccessor",
     "apotheosis.affix.OmneticDataAccessor",
-    "cold_sweat.MixinPlayerTempCap",
     "cold_sweat.MixinDragonStateHandler",
     "puffish_skills.MixinMineBlockExperienceSource",
     "forbidden_arcanus.MixinServerPlayerGameMode"
