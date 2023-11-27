@@ -21,7 +21,7 @@ public class ServerConfig {
         String[] dragonTypes = {"cave", "sea", "forest"};
 
         BUILDER.push("Cold Sweat");
-        COLD_SWEAT = BUILDER.comment("Enable Cold Sweat Compatibility").define("cold_sweat", false);
+        COLD_SWEAT = BUILDER.comment("Enable Cold Sweat Compatibility").define("cold_sweat", true);
 
         for (String dragonType : dragonTypes) {
             BUILDER.push(dragonType.toUpperCase());
