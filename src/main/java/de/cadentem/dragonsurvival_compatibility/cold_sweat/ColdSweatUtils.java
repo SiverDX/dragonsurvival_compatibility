@@ -19,7 +19,7 @@ public class ColdSweatUtils {
     private static final String HEAT_DAMPENING = "7e13941d-f8f9-40e9-bffa-31117a20ca04";
     private static final String BURNING_POINT_OFFSET = "08d592b7-5e5d-4be4-8ac9-fd1b4bc8f37e";
 
-    private static final String CORE_TEMPERATURE_OFFSEt = "3dd8f24b-4a5d-499d-85a1-9032a4254d57";
+    private static final String CORE_TEMPERATURE_OFFSET = "3dd8f24b-4a5d-499d-85a1-9032a4254d57";
     private static final String BASE_TEMPERATURE_OFFSET = "3e252bf8-d809-47b2-bd67-0b1044fe0d09";
     private static final String WORLD_TEMPERATURE_OFFSET = "36852aa7-c941-4482-9c0c-f42d7f0ae270";
 
@@ -36,7 +36,7 @@ public class ColdSweatUtils {
                 ColdSweatUtils.addModifier(player, ModAttributes.HEAT_DAMPENING, HEAT_DAMPENING, "[Dragon] Heat Dampening", value.heatDampening.get());
                 ColdSweatUtils.addModifier(player, ModAttributes.BURNING_POINT_OFFSET, BURNING_POINT_OFFSET, "[Dragon] Burning Point Offset", value.burningPointOffset.get());
 
-                ColdSweatUtils.addModifier(player, ModAttributes.CORE_BODY_TEMPERATURE_OFFSET, CORE_TEMPERATURE_OFFSEt, "[Dragon] Core Temperature Offset", value.coreTemperatureOffset.get());
+                ColdSweatUtils.addModifier(player, ModAttributes.CORE_BODY_TEMPERATURE_OFFSET, CORE_TEMPERATURE_OFFSET, "[Dragon] Core Temperature Offset", value.coreTemperatureOffset.get());
                 ColdSweatUtils.addModifier(player, ModAttributes.BASE_BODY_TEMPERATURE_OFFSET, BASE_TEMPERATURE_OFFSET, "[Dragon] Base Temperature Offset", value.baseTemperatureOffset.get());
                 ColdSweatUtils.addModifier(player, ModAttributes.WORLD_TEMPERATURE_OFFSET, WORLD_TEMPERATURE_OFFSET, "[Dragon] World Temperature Offset", value.worldTemperatureOffset.get());
             }
@@ -46,15 +46,15 @@ public class ColdSweatUtils {
     public static void removeModifiers(final Player player) {
         removeModifier(player, ModAttributes.COLD_RESISTANCE, COLD_RESISTANCE);
         removeModifier(player, ModAttributes.COLD_DAMPENING, COLD_DAMPENING);
-        removeModifier(player, ModAttributes.HEAT_RESISTANCE, FREEZING_POINT_OFFSET);
+        removeModifier(player, ModAttributes.FREEZING_POINT_OFFSET, FREEZING_POINT_OFFSET);
 
-        removeModifier(player, ModAttributes.HEAT_DAMPENING, HEAT_RESISTANCE);
+        removeModifier(player, ModAttributes.HEAT_RESISTANCE, HEAT_RESISTANCE);
         removeModifier(player, ModAttributes.HEAT_DAMPENING, HEAT_DAMPENING);
-        removeModifier(player, ModAttributes.HEAT_DAMPENING, BURNING_POINT_OFFSET);
+        removeModifier(player, ModAttributes.BURNING_POINT_OFFSET, BURNING_POINT_OFFSET);
 
-        removeModifier(player, ModAttributes.HEAT_DAMPENING, CORE_TEMPERATURE_OFFSEt);
-        removeModifier(player, ModAttributes.HEAT_DAMPENING, BASE_TEMPERATURE_OFFSET);
-        removeModifier(player, ModAttributes.HEAT_DAMPENING, WORLD_TEMPERATURE_OFFSET);
+        removeModifier(player, ModAttributes.CORE_BODY_TEMPERATURE_OFFSET, CORE_TEMPERATURE_OFFSET);
+        removeModifier(player, ModAttributes.BASE_BODY_TEMPERATURE_OFFSET, BASE_TEMPERATURE_OFFSET);
+        removeModifier(player, ModAttributes.WORLD_TEMPERATURE_OFFSET, WORLD_TEMPERATURE_OFFSET);
     }
 
     public static void addModifier(final Player player, final Attribute attribute, final String attributeUUID, final String attributeDescription, final Double value) {
