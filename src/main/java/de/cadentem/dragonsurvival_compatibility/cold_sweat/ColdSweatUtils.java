@@ -32,7 +32,7 @@ public class ColdSweatUtils {
                 ColdSweatUtils.addModifier(player, ModAttributes.COLD_DAMPENING, COLD_DAMPENING, "[Dragon] Cold Dampening", value.coldDampening.get());
                 ColdSweatUtils.addModifier(player, ModAttributes.FREEZING_POINT_OFFSET, FREEZING_POINT_OFFSET, "[Dragon] Freezing Point Offset", value.freezingPointOffset.get());
 
-                ColdSweatUtils.addModifier(player, ModAttributes.HEAT_RESISTANCE, COLD_RESISTANCE, "[Dragon] Heat Resistance", value.heatResistance.get());
+                ColdSweatUtils.addModifier(player, ModAttributes.HEAT_RESISTANCE, HEAT_RESISTANCE, "[Dragon] Heat Resistance", value.heatResistance.get());
                 ColdSweatUtils.addModifier(player, ModAttributes.HEAT_DAMPENING, HEAT_DAMPENING, "[Dragon] Heat Dampening", value.heatDampening.get());
                 ColdSweatUtils.addModifier(player, ModAttributes.BURNING_POINT_OFFSET, BURNING_POINT_OFFSET, "[Dragon] Burning Point Offset", value.burningPointOffset.get());
 
@@ -65,7 +65,14 @@ public class ColdSweatUtils {
         AttributeInstance attributeInstance = player.getAttribute(attribute);
 
         if (attributeInstance != null) {
-            attributeInstance.addPermanentModifier(new AttributeModifier(UUID.fromString(attributeUUID), attributeDescription, value, AttributeModifier.Operation.ADDITION));
+            AttributeModifier modifier = new AttributeModifier(UUID.fromString(attributeUUID), attributeDescription, value, AttributeModifier.Operation.ADDITION);
+
+            // For safety
+            if (attributeInstance.hasModifier(modifier)) {
+                attributeInstance.removeModifier(modifier);
+            }
+
+            attributeInstance.addPermanentModifier(modifier);
         }
     }
 
