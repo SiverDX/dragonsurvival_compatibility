@@ -2,12 +2,12 @@ package de.cadentem.dragonsurvival_compatibility.mixin.bettercombat;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
-import com.mojang.math.Vector3f;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import dev.kosmx.playerAnim.impl.animation.AnimationApplier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.player.Player;
+import org.joml.Vector3f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

@@ -25,27 +25,27 @@ public abstract class MixinBlock {
     @Unique private static BlockState dragonsurvival_compatibility$storedBlockState;
     @Unique private static Player dragonsurvival_compatibility$storedPlayer;
 
-    @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
+    @TargetHandler(mixin = "dev.shadowsoffire.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
     @Inject(method = "@MixinSquared:Handler", at = @At(value = "HEAD"))
-    private static void dragonsurvival_compatibility$storeData(final BlockState blockState, final Level level, final BlockPos blockPosition, @Nullable final BlockEntity blockEntity, final Entity entity, final ItemStack tool, final CallbackInfo original, final CallbackInfo callback) {
+    private static void dragonsurvival_compatibility$storeData(final BlockState state, final Level level, final BlockPos blockPosition, @Nullable final BlockEntity blockEntity, final Entity entity, final ItemStack tool, boolean dropExperience, final CallbackInfo original, final CallbackInfo callback) {
         if (!ServerConfig.APOTHEOSIS.get()) {
             return;
         }
 
         if (entity instanceof Player player) {
             dragonsurvival_compatibility$storedPlayer = player;
-            dragonsurvival_compatibility$storedBlockState = blockState;
+            dragonsurvival_compatibility$storedBlockState = state;
         }
     }
 
-    @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
-    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/adventure/affix/AffixHelper;getAffixes(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;"))
-    private static ItemStack dragonsurvival_compatibility$changeTool(final ItemStack itemStack) {
+    @TargetHandler(mixin = "dev.shadowsoffire.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
+    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Ldev/shadowsoffire/apotheosis/adventure/affix/AffixHelper;getAffixes(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;"))
+    private static ItemStack dragonsurvival_compatibility$changeTool(final ItemStack tool) {
         if (!ServerConfig.APOTHEOSIS.get()) {
-            return itemStack;
+            return tool;
         }
 
-        ItemStack result = Utils.getDragonHarvestTool(itemStack, dragonsurvival_compatibility$storedPlayer, dragonsurvival_compatibility$storedBlockState);
+        ItemStack result = Utils.getDragonHarvestTool(tool, dragonsurvival_compatibility$storedPlayer, dragonsurvival_compatibility$storedBlockState);
 
         dragonsurvival_compatibility$storedPlayer = null;
         dragonsurvival_compatibility$storedBlockState = null;

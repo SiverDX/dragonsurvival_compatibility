@@ -25,13 +25,6 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
                 .replaceAll("\\..*", ""); // Sub package
 
         if (!modid.isBlank()) {
-            if (modid.equals("raised")) {
-                ModFileInfo modFile = LoadingModList.get().getModFileById(modid);
-                if (modFile != null && modFile.getMods() != null && modFile.getMods().get(0) != null) {
-                    return modFile.getMods().get(0).getVersion().getMajorVersion() == 2;
-                }
-            }
-
             return LoadingModList.get().getModFileById(modid) != null;
         }
 

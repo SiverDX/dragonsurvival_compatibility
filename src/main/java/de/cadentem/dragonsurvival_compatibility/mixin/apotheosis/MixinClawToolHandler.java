@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /** Search for the best (harvest related) affixed Apotheosis item */
 @Mixin(value = ClawToolHandler.class, remap = false)
-public class MixinClawToolHandler { // TODO :: Check if tool is effective for the block and prefer that over a non-effective tool with Omnetic?
+public class MixinClawToolHandler {
     @Inject(method = "getDragonHarvestToolAndSlot", at = @At("HEAD"), cancellable = true)
     private static void getAffixedDragonHarvestToolAndSlot(final Player player, final BlockState blockState, final CallbackInfoReturnable<Pair<ItemStack, Integer>> callback) {
         if (!ServerConfig.APOTHEOSIS.get()) {

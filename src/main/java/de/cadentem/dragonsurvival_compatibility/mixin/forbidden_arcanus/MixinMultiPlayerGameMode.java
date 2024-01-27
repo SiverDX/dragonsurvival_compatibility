@@ -40,7 +40,7 @@ public abstract class MixinMultiPlayerGameMode {
         LocalPlayer localPlayer = Minecraft.getInstance().player;
 
         if (localPlayer != null) {
-            return Utils.getDragonHarvestTool(itemStack, localPlayer, localPlayer.level.getBlockState(storedBlockPosition.get()));
+            return Utils.getDragonHarvestTool(itemStack, localPlayer, localPlayer.level().getBlockState(storedBlockPosition.get()));
         }
 
         return itemStack;

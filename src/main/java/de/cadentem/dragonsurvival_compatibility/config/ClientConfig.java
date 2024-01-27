@@ -10,7 +10,6 @@ public class ClientConfig {
     public static ForgeConfigSpec.BooleanValue BETTERCOMBAT;
     public static ForgeConfigSpec.BooleanValue JADE;
     public static ForgeConfigSpec.BooleanValue WTHITHARVESTABILITY;
-    public static ForgeConfigSpec.BooleanValue RAISED;
     public static ForgeConfigSpec.BooleanValue COLD_SWEAT;
 
     static {
@@ -18,7 +17,6 @@ public class ClientConfig {
         BETTERCOMBAT = BUILDER.comment("Enable Better Combat compatibility").define("bettercombat", true);
         JADE = BUILDER.comment("Enable Jade Compatibility").define("enable_jade", true);
         WTHITHARVESTABILITY = BUILDER.comment("Enable WTHIT Harvestability Compatibility").define("wthitharvestability", true);
-        RAISED = BUILDER.comment("Enable Raised Compatibility").define("raised", true);
         COLD_SWEAT = BUILDER.comment("Enable Cold Sweat Compatibility (render changes)").define("cold_sweat", true);
         BUILDER.pop();
 
