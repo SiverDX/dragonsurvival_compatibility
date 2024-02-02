@@ -82,11 +82,12 @@ dependencies {
     compileOnly fg.deobf("curse.maven:cold-sweat-506194:5015701") // 1.20.1 - 2.2.5.1
 
     // Jade Support
-    implementation fg.deobf("curse.maven:jade-324717:4986594") // 1.20.1 - 11.7.1
+    compileOnly fg.deobf("curse.maven:jade-324717:4986594") // 1.20.1 - 11.7.1
 
     // WTHIT Harvestability Support
-    compileOnly fg.deobf("curse.maven:wthit-forge-455982:4889899") // 1.20.1 - 8.4.3
     compileOnly fg.deobf("curse.maven:wthit-harvestability-666621:4759296") // 1.20.1 - 2.2.0
+    compileOnly fg.deobf("curse.maven:wthit-forge-455982:4889899") // 1.20.1 - 8.4.3 (dependency)
+    compileOnly fg.deobf("curse.maven:badpackets-615134:4784395") // 1.20.1 - 0.4.3 (dependency)
 
     // Player Animator (for Better Combat)
     compileOnly fg.deobf("curse.maven:playeranimator-658587:4587214") // 1.20.1 - 1.0.2
@@ -96,11 +97,12 @@ dependencies {
 
     // Forbidden and Arcanus
     compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:4957493") // 1.20.1 - 2.2.4
-    compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319") // 1.20.1 - 1.1.1
+    compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319") // 1.20.1 - 1.1.1 (dependency)
 
     // Apotheosis
-    implementation fg.deobf("curse.maven:apotheosis-313970:5022788") // 1.20.1 - 7.2.1
-    implementation fg.deobf("curse.maven:placebo-283644:4913663") // 1.20.1 - 8.6.0
+    compileOnly fg.deobf("curse.maven:apotheosis-313970:5022788") // 1.20.1 - 7.2.1
+    compileOnly fg.deobf("curse.maven:placebo-283644:4913663") // 1.20.1 - 8.6.0 (dependency)
+    compileOnly fg.deobf("curse.maven:apothic-attributes-898963:4954000") // 1.20.1 - 1.2.1 (dependency)
 
     /* --- Mixin Configuration --- */
     implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared_version}"))
