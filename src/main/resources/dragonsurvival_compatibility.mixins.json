@@ -6,22 +6,22 @@
   "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
-    "apotheosis.affix.MixinBlock",
     "apotheosis.MixinClawToolHandler",
+    "apotheosis.affix.MixinBlock",
     "apotheosis.affix.OmneticAffixAccessor",
     "apotheosis.affix.OmneticDataAccessor",
     "cold_sweat.MixinDragonStateHandler",
-    "puffish_skills.MixinMineBlockExperienceSource",
-    "forbidden_arcanus.MixinServerPlayerGameMode"
+    "forbidden_arcanus.MixinServerPlayerGameMode",
+    "puffish_skills.MixinMineBlockExperienceSource"
   ],
   "client": [
+    "bettercombat.MixinAnimationApplier",
     "bettercombat.MixinClientDragonRender",
     "bettercombat.MixinLevelRenderer",
-    "bettercombat.MixinAnimationApplier",
     "bettercombat.MixinPlayer",
     "cold_sweat.MixinClientMagicHUDHandler",
+    "forbidden_arcanus.MixinMultiPlayerGameMode",
     "jade.MixinJadeHarvestToolProvider",
-    "wthitharvestability.MixinHarvestabilityWailaHandler",
-    "forbidden_arcanus.MixinMultiPlayerGameMode"
+    "wthitharvestability.MixinHarvestabilityWailaHandler"
   ]
 }
