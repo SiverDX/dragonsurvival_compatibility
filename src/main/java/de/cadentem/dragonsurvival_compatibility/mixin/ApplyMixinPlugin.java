@@ -18,21 +18,13 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(final String targetClassName, final String mixinClassName) {
-        // `ModList.get()` is not available at this point in time
-        String modid = mixinClassName
-                .replace("de.cadentem.dragonsurvival_compatibility.mixin.", "") // General package
-                .replaceAll("\\.?Mixin.*", "") // Mixin class name
-                .replaceAll("\\..*", ""); // Sub package
+        System.out.println(mixinClassName);
+        String modid = mixinClassName.replace("de.cadentem.dragonsurvival_compatibility.mixin.", "");
+        modid = modid.replace("client.", "");
+        String[] elements = modid.split("\\.");
 
-        if (!modid.isBlank()) {
-            if (modid.equals("raised")) {
-                ModFileInfo modFile = LoadingModList.get().getModFileById(modid);
-                if (modFile != null && modFile.getMods() != null && modFile.getMods().get(0) != null) {
-                    return modFile.getMods().get(0).getVersion().getMajorVersion() == 2;
-                }
-            }
-
-            return LoadingModList.get().getModFileById(modid) != null;
+        if (elements.length == 2) {
+            return LoadingModList.get().getModFileById(elements[0]) != null;
         }
 
         return true;
