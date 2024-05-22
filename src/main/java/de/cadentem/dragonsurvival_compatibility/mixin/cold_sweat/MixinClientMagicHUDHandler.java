@@ -1,7 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat;
 
 import by.dragonsurvivalteam.dragonsurvival.client.handlers.magic.ClientMagicHUDHandler;
-import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.momosoftworks.coldsweat.config.ConfigSettings;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
@@ -9,7 +8,6 @@ import net.minecraftforge.client.gui.overlay.ForgeGui;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /** XP bar */
