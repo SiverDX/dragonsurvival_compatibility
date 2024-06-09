@@ -9,7 +9,10 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.TierSortingRegistry;
 
 public class Utils {
     public static ItemStack getDragonHarvestTool(final ItemStack original, final Player player, final BlockState blockState) {
@@ -61,5 +64,31 @@ public class Utils {
 
     public static float getHarvestSpeed(final ItemStack itemStack, final BlockState blockState) {
         return itemStack.getItem() instanceof DiggerItem diggerItem ? diggerItem.getDestroySpeed(itemStack, blockState) : itemStack.getDestroySpeed(blockState);
+    }
+
+    public static ItemStack getTooltipStack(final ItemStack tool, final Player player, final BlockState state) {
+        if (state == null) {
+            return tool;
+        }
+
+        if (ToolUtils.shouldUseDragonTools(tool)) {
+            DragonStateHandler handler = DragonUtils.getHandler(player);
+
+            if (!handler.isDragon() || handler.switchedTool) {
+                return tool;
+            }
+
+            Tier tier = handler.getDragonHarvestTier(state);
+            ItemStack clawTool = ClawToolHandler.getDragonHarvestTool(player, state);
+
+            // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
+            if (!(clawTool.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
+                return handler.getFakeTool(state);
+            }
+
+            return clawTool;
+        }
+
+        return tool;
     }
 }

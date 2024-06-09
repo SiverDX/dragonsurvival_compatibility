@@ -11,8 +11,7 @@
     "apotheosis.affix.OmneticAffixAccessor",
     "apotheosis.affix.OmneticDataAccessor",
     "cold_sweat.MixinDragonStateHandler",
-    "forbidden_arcanus.MixinServerPlayerGameMode",
-    "puffish_skills.MixinMineBlockExperienceSource"
+    "forbidden_arcanus.MixinServerPlayerGameMode"
   ],
   "client": [
     "bettercombat.MixinAnimationApplier",
@@ -22,6 +21,6 @@
     "cold_sweat.MixinClientMagicHUDHandler",
     "forbidden_arcanus.MixinMultiPlayerGameMode",
     "jade.MixinJadeHarvestToolProvider",
-    "wthitharvestability.MixinHarvestabilityWailaHandler"
+    "wthit.HarvestProviderMixin"
   ]
 }
