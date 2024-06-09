@@ -13,7 +13,6 @@ public class ServerConfig {
 
     public static ForgeConfigSpec.BooleanValue COLD_SWEAT;
     public static ForgeConfigSpec.BooleanValue UPGRADED_NETHERITE;
-    public static ForgeConfigSpec.BooleanValue PUFFISH_SKILLS;
     public static ForgeConfigSpec.BooleanValue APOTHEOSIS;
     public static ForgeConfigSpec.BooleanValue FORBIDDEN_ARCANUS;
 
@@ -55,10 +54,9 @@ public class ServerConfig {
 
         BUILDER.pop();
 
-        UPGRADED_NETHERITE = BUILDER.comment("Enable Upgraded Netherite Compatibility").define("upgraded_netherite", true);
-        PUFFISH_SKILLS = BUILDER.comment("Enable Pufferfish's Skills Compatibility").define("puffish_skills", true);
-        APOTHEOSIS = BUILDER.comment("Enable Apotheosis Compatibility").define("apotheosis", true);
-        FORBIDDEN_ARCANUS = BUILDER.comment("Enable Forbidden and Arcanus Compatibility").define("forbidden_arcanus", true);
+        UPGRADED_NETHERITE = BUILDER.comment("Enable Upgraded Netherite compatibility").define("upgraded_netherite", true);
+        APOTHEOSIS = BUILDER.comment("Enable Apotheosis compatibility").define("apotheosis", true);
+        FORBIDDEN_ARCANUS = BUILDER.comment("Enable Forbidden and Arcanus compatibility").define("forbidden_arcanus", true);
         SPEC = BUILDER.build();
     }
 }

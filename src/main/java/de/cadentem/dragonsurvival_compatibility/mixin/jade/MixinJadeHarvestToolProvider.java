@@ -1,14 +1,8 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.jade;
 
-import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
-import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
-import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
-import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
+import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TieredItem;
-import net.minecraftforge.common.TierSortingRegistry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,27 +29,11 @@ public abstract class MixinJadeHarvestToolProvider {
 
     /** @reason Give Jade the relevant dragon claw harvest tool or a fake tool based on the dragon harvest level */
     @ModifyVariable(method = "getText", at = @At(value = "STORE"), name = "held", remap = false)
-    public ItemStack dragonsurvival_compatibility$change(final ItemStack itemStack) {
+    public ItemStack dragonsurvival_compatibility$change(final ItemStack stack) {
         if (ClientConfig.JADE.get()) {
-            if (ToolUtils.shouldUseDragonTools(itemStack)) {
-                DragonStateHandler handler = DragonUtils.getHandler(dragonsurvival_compatibility$accessor.getPlayer());
-
-                if (!handler.isDragon() || handler.switchedTool) {
-                    return itemStack;
-                }
-
-                Tier tier = handler.getDragonHarvestTier(dragonsurvival_compatibility$accessor.getBlockState());
-                ItemStack clawStack = ClawToolHandler.getDragonHarvestTool(dragonsurvival_compatibility$accessor.getPlayer(), dragonsurvival_compatibility$accessor.getBlockState());
-
-                // Main hand is not a tool or its tier is lower than the base harvest level of the dragon
-                if (!(clawStack.getItem() instanceof TieredItem tieredItem) || TierSortingRegistry.getTiersLowerThan(tier).contains(tieredItem.getTier())) {
-                    return handler.getFakeTool(dragonsurvival_compatibility$accessor.getBlockState());
-                }
-
-                return clawStack;
-            }
+            return Utils.getTooltipStack(stack, dragonsurvival_compatibility$accessor.getPlayer(), dragonsurvival_compatibility$accessor.getBlockState());
         }
 
-        return itemStack;
+        return stack;
     }
 }

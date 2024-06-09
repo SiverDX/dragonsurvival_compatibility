@@ -1,7 +1,7 @@
 package de.cadentem.dragonsurvival_compatibility.mixin;
 
+import de.cadentem.dragonsurvival_compatibility.DragonSurvivalCompatibility;
 import net.minecraftforge.fml.loading.LoadingModList;
-import net.minecraftforge.fml.loading.moddiscovery.ModFileInfo;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 public class ApplyMixinPlugin implements IMixinConfigPlugin {
+    private final static String PREFIX = ApplyMixinPlugin.class.getPackageName() + ".";
+
     @Override
     public void onLoad(final String mixinPackage) { /* Nothing to do */ }
 
@@ -18,13 +20,18 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(final String targetClassName, final String mixinClassName) {
-        System.out.println(mixinClassName);
-        String modid = mixinClassName.replace("de.cadentem.dragonsurvival_compatibility.mixin.", "");
+        String modid = mixinClassName.replace(PREFIX, "");
         modid = modid.replace("client.", "");
         String[] elements = modid.split("\\.");
 
         if (elements.length == 2) {
-            return LoadingModList.get().getModFileById(elements[0]) != null;
+            boolean shouldApply = LoadingModList.get().getModFileById(elements[0]) != null;
+
+            if (!shouldApply) {
+                DragonSurvivalCompatibility.LOG.debug("Skipping mixin [{}] due to relevant mod not being present", mixinClassName);
+            }
+
+            return shouldApply;
         }
 
         return true;
