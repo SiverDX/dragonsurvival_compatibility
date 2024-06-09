@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.ModifyVariable;
 @Mixin(value = HarvestProvider.class, remap = false)
 public abstract class HarvestProviderMixin {
     @ModifyVariable(method = "appendBody", at = @At(value = "STORE"), name = "heldStack")
-    private ItemStack dragonsuirvival_compatibility$change(final ItemStack stack, final ITooltip tooltip, final IBlockAccessor accessor) {
+    private ItemStack dragonsurvival_compatibility$change(final ItemStack stack, final ITooltip tooltip, final IBlockAccessor accessor) {
         if (ClientConfig.WTHIT.get()) {
             return Utils.getTooltipStack(stack, accessor.getPlayer(), accessor.getBlockState());
         }
@@ -25,7 +25,7 @@ public abstract class HarvestProviderMixin {
     }
 
     @ModifyVariable(method = "onHandleTooltip", at = @At(value = "STORE"), name = "heldStack")
-    private ItemStack dragonsuirvival_compatibility$change(final ItemStack stack, final ITooltip tooltip, final ICommonAccessor accessor) {
+    private ItemStack dragonsurvival_compatibility$change(final ItemStack stack, final ITooltip tooltip, final ICommonAccessor accessor) {
         if (ClientConfig.WTHIT.get()) {
             return Utils.getTooltipStack(stack, accessor.getPlayer(), state);
         }

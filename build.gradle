@@ -79,29 +79,25 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    implementation fg.deobf("curse.maven:cold-sweat-506194:5349837") // 1.20.1 - 2.3-b03d
+    implementation fg.deobf("curse.maven:cold-sweat-506194:5407819") // 1.20.1 - 2.3-b04a
 
     // Jade Support
-    compileOnly fg.deobf("curse.maven:jade-324717:4986594") // 1.20.1 - 11.7.1
+    compileOnly fg.deobf("curse.maven:jade-324717:5390389") // 1.20.1 - 11.9.3
 
-    // WTHIT Harvestability Support
-    compileOnly fg.deobf("curse.maven:wthit-harvestability-666621:4759296") // 1.20.1 - 2.2.0
-    compileOnly fg.deobf("curse.maven:wthit-forge-455982:4889899") // 1.20.1 - 8.4.3 (dependency)
+    // WTHIT Support
+    compileOnly fg.deobf("curse.maven:wthit-forge-455982:5401194") // 1.20.1 - 8.12.0
     compileOnly fg.deobf("curse.maven:badpackets-615134:4784395") // 1.20.1 - 0.4.3 (dependency)
 
     // Player Animator (for Better Combat)
     compileOnly fg.deobf("curse.maven:playeranimator-658587:4587214") // 1.20.1 - 1.0.2
 
-    // Puffish Skills
-    compileOnly fg.deobf("curse.maven:puffish-skills-835091:5017744") // 1.20.1 - 0.11.2
-
     // Forbidden and Arcanus
-    compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:4957493") // 1.20.1 - 2.2.4
+    compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:5198323") // 1.20.1 - 2.2.6
     compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319") // 1.20.1 - 1.1.1 (dependency)
 
     // Apotheosis
-    compileOnly fg.deobf("curse.maven:apotheosis-313970:5022788") // 1.20.1 - 7.2.1
-    compileOnly fg.deobf("curse.maven:placebo-283644:4913663") // 1.20.1 - 8.6.0 (dependency)
+    compileOnly fg.deobf("curse.maven:apotheosis-313970:5317303") // 1.20.1 - 7.3.5
+    compileOnly fg.deobf("curse.maven:placebo-283644:5098182") // 1.20.1 - 8.6.1 (dependency)
     compileOnly fg.deobf("curse.maven:apothic-attributes-898963:4954000") // 1.20.1 - 1.2.1 (dependency)
 
     /* --- Mixin Configuration --- */
