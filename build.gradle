@@ -79,10 +79,10 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    implementation fg.deobf("curse.maven:cold-sweat-506194:5407819") // 1.20.1 - 2.3-b04a
+    compileOnly fg.deobf("curse.maven:cold-sweat-506194:5407819") // 1.20.1 - 2.3-b04a
 
     // Jade Support
-    compileOnly fg.deobf("curse.maven:jade-324717:5390389") // 1.20.1 - 11.9.3
+    implementation fg.deobf("curse.maven:jade-324717:5390389") // 1.20.1 - 11.9.3
 
     // WTHIT Support
     compileOnly fg.deobf("curse.maven:wthit-forge-455982:5401194") // 1.20.1 - 8.12.0

@@ -23,7 +23,7 @@ public abstract class MixinJadeHarvestToolProvider {
 
     /** @reason Get {@link net.minecraft.world.entity.player.Player} and {@link net.minecraft.world.level.block.state.BlockState} */
     @Inject(method = "getText", at = @At("HEAD"), remap = false)
-    public void dragonsurvival_compatibility$getAccesor(final BlockAccessor accessor, final IPluginConfig config, final IElementHelper helper, final CallbackInfoReturnable<List<IElement>> callback) {
+    public void dragonsurvival_compatibility$getAccesor(final BlockAccessor accessor, final IPluginConfig config, final CallbackInfoReturnable<List<IElement>> callback) {
         this.dragonsurvival_compatibility$accessor = accessor;
     }
 
