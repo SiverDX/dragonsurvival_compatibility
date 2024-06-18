@@ -114,11 +114,13 @@ dependencies {
     compileOnly fg.deobf("curse.maven:jade-324717:4914105") // 1.19.1 - 8.9.2
 
     // WTHIT
-    implementation fg.deobf("curse.maven:wthit-forge-455982:5401135") // 1.19.2 - 5.27.0
-    implementation fg.deobf("curse.maven:badpackets-615134:4784364") // 1.19.2 - 0.2.3
+    compileOnly fg.deobf("curse.maven:wthit-forge-455982:5401135") // 1.19.2 - 5.27.0
+    compileOnly fg.deobf("curse.maven:badpackets-615134:4784364") // 1.19.2 - 0.2.3
 
     // Player Animator (for Better Combat)
-    compileOnly fg.deobf("curse.maven:playeranimator-658587:4418149") // 1.19.2 - 1.0.2
+    implementation fg.deobf("curse.maven:better-combat-by-daedelus-639842:4534619") // 1.7.1
+    implementation fg.deobf("curse.maven:playeranimator-658587:4418149") // 1.0.2
+    implementation fg.deobf("curse.maven:cloth-config-348521:4973444") // 8.3.115
 
     // Upgraded Netherite
     compileOnly fg.deobf("curse.maven:upgraded-netherite-400085:4536108") // 1.19.2 - 5.1.0.9
