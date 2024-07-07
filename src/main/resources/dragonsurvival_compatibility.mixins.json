@@ -14,10 +14,10 @@
     "forbidden_arcanus.MixinServerPlayerGameMode"
   ],
   "client": [
-    "bettercombat.MixinAnimationApplier",
-    "bettercombat.MixinClientDragonRender",
-    "bettercombat.MixinLevelRenderer",
-    "bettercombat.MixinPlayer",
+    "bettercombat.AbstractClientPlayerMixin",
+    "bettercombat.AnimationApplierMixin",
+    "bettercombat.ClientDragonRenderMixin",
+    "bettercombat.LevelRendererMixin",
     "cold_sweat.MixinClientMagicHUDHandler",
     "forbidden_arcanus.MixinMultiPlayerGameMode",
     "jade.MixinJadeHarvestToolProvider",

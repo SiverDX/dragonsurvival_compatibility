@@ -32,7 +32,7 @@ public abstract class MixinServerPlayerGameMode {
     }
 
     @TargetHandler(mixin = "com.stal111.forbidden_arcanus.core.mixin.ServerPlayerGameModeMixin", name = "forbiddenArcanus_incrementDestroyProgress")
-    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/item/modifier/ModifierHelper;getModifier(Lnet/minecraft/world/item/ItemStack;)Lcom/stal111/forbidden_arcanus/common/item/modifier/ItemModifier;"))
+    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/item/modifier/ModifierHelper;getModifier(Lnet/minecraft/world/item/ItemStack;)Lcom/stal111/forbidden_arcanus/common/item/modifier/ItemModifier;", remap = false))
     private ItemStack switchTool(final ItemStack itemStack, @Share("blockState") final LocalRef<BlockState> storedBlockState) {
         if (!ServerConfig.FORBIDDEN_ARCANUS.get()) {
             return itemStack;

@@ -31,7 +31,7 @@ public abstract class MixinMultiPlayerGameMode {
     }
 
     @TargetHandler(mixin = "com.stal111.forbidden_arcanus.core.mixin.MultiPlayerGameModeMixin", name = "forbiddenArcanus_continueDestroyBlock$updateBlockBreaker")
-    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/item/modifier/ModifierHelper;getModifier(Lnet/minecraft/world/item/ItemStack;)Lcom/stal111/forbidden_arcanus/common/item/modifier/ItemModifier;"))
+    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lcom/stal111/forbidden_arcanus/common/item/modifier/ModifierHelper;getModifier(Lnet/minecraft/world/item/ItemStack;)Lcom/stal111/forbidden_arcanus/common/item/modifier/ItemModifier;", remap = false))
     private ItemStack dragonsurvival_compatibility$switchTool(final ItemStack itemStack, @Share("blockPosition") final LocalRef<BlockPos> storedBlockPosition) {
         if (!ServerConfig.FORBIDDEN_ARCANUS.get()) {
             return itemStack;

@@ -13,7 +13,6 @@ import dev.shadowsoffire.apotheosis.adventure.affix.AffixInstance;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixRegistry;
 import dev.shadowsoffire.apotheosis.adventure.affix.effect.OmneticAffix;
 import dev.shadowsoffire.apotheosis.adventure.affix.effect.RadialAffix;
-import dev.shadowsoffire.apotheosis.adventure.loot.AffixLootRegistry;
 import dev.shadowsoffire.placebo.reload.DynamicHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.SimpleContainer;

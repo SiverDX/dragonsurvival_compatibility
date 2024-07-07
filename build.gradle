@@ -79,26 +79,30 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    compileOnly fg.deobf("curse.maven:cold-sweat-506194:5407819") // 1.20.1 - 2.3-b04a
+//    implementation fg.deobf("curse.maven:cold-sweat-506194:5503464") // 2.3-b04d
+    // FIXME :: temp because curse forge api version is wrong
+    implementation fg.deobf("libs:ColdSweat:2.2.5.1")
 
     // Jade Support
-    implementation fg.deobf("curse.maven:jade-324717:5390389") // 1.20.1 - 11.9.3
+    implementation fg.deobf("curse.maven:jade-324717:5390389") // 11.9.3
 
     // WTHIT Support
-    compileOnly fg.deobf("curse.maven:wthit-forge-455982:5401194") // 1.20.1 - 8.12.0
-    compileOnly fg.deobf("curse.maven:badpackets-615134:4784395") // 1.20.1 - 0.4.3 (dependency)
+    compileOnly fg.deobf("curse.maven:wthit-forge-455982:5401194") // 8.12.0
+    compileOnly fg.deobf("curse.maven:badpackets-615134:4784395") // 0.4.3
 
-    // Player Animator (for Better Combat)
-    compileOnly fg.deobf("curse.maven:playeranimator-658587:4587214") // 1.20.1 - 1.0.2
+    // Better Combat
+    compileOnly fg.deobf("curse.maven:better-combat-by-daedelus-639842:5266134") // 1.8.5
+    compileOnly fg.deobf("curse.maven:playeranimator-658587:4587214") // 1.0.2
+    compileOnly fg.deobf("curse.maven:cloth-config-348521:4973441") // 11.1.118
 
     // Forbidden and Arcanus
-    compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:5198323") // 1.20.1 - 2.2.6
-    compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319") // 1.20.1 - 1.1.1 (dependency)
+    compileOnly fg.deobf("curse.maven:forbidden-arcanus-309858:5198323") // 2.2.6
+    compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319") // 1.1.1
 
     // Apotheosis
-    compileOnly fg.deobf("curse.maven:apotheosis-313970:5317303") // 1.20.1 - 7.3.5
-    compileOnly fg.deobf("curse.maven:placebo-283644:5098182") // 1.20.1 - 8.6.1 (dependency)
-    compileOnly fg.deobf("curse.maven:apothic-attributes-898963:4954000") // 1.20.1 - 1.2.1 (dependency)
+    compileOnly fg.deobf("curse.maven:apotheosis-313970:5486368") // 7.4.0
+    compileOnly fg.deobf("curse.maven:placebo-283644:5414631") // 8.6.2
+    compileOnly fg.deobf("curse.maven:apothic-attributes-898963:5340012") // 1.3.5
 
     /* --- Mixin Configuration --- */
     implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared_version}"))
