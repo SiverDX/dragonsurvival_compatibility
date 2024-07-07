@@ -16,9 +16,10 @@
   ],
   "client": [
     "bettercombat.AbstractClientPlayerMixin",
-    "bettercombat.LevelRendererMixin",
     "bettercombat.AnimationApplierMixin",
     "bettercombat.ClientDragonRenderMixin",
+    "bettercombat.DragonRendererMixin",
+    "bettercombat.LevelRendererMixin",
     "cold_sweat.MixinClientMagicHUDHandler",
     "forbidden_arcanus.MixinMultiPlayerGameMode",
     "jade.MixinJadeHarvestToolProvider",
