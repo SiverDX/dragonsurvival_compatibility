@@ -39,7 +39,7 @@ public abstract class MixinBlock {
     }
 
     @TargetHandler(mixin = "shadows.apotheosis.mixin.BlockMixin", name = "apoth_telepathicHead")
-    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/adventure/affix/AffixHelper;getAffixes(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;"))
+    @ModifyArg(method = "@MixinSquared:Handler", at = @At(value = "INVOKE", target = "Lshadows/apotheosis/adventure/affix/AffixHelper;getAffixes(Lnet/minecraft/world/item/ItemStack;)Ljava/util/Map;", remap = false))
     private static ItemStack dragonsurvival_compatibility$changeTool(final ItemStack itemStack) {
         if (!ServerConfig.APOTHEOSIS.get()) {
             return itemStack;
