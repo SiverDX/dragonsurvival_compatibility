@@ -10,6 +10,7 @@
     "apotheosis.affix.MixinBlock",
     "apotheosis.affix.OmneticAffixAccessor",
     "apotheosis.affix.OmneticDataAccessor",
+    "bettercombat.PlayerMixin",
     "cold_sweat.MixinDragonStateHandler",
     "forbidden_arcanus.MixinServerPlayerGameMode"
   ],
@@ -17,6 +18,7 @@
     "bettercombat.AbstractClientPlayerMixin",
     "bettercombat.AnimationApplierMixin",
     "bettercombat.ClientDragonRenderMixin",
+    "bettercombat.DragonRendererMixin",
     "bettercombat.LevelRendererMixin",
     "cold_sweat.MixinClientMagicHUDHandler",
     "forbidden_arcanus.MixinMultiPlayerGameMode",
