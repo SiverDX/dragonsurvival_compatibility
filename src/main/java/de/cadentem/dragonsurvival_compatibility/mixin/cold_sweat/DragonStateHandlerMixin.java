@@ -3,7 +3,7 @@ package de.cadentem.dragonsurvival_compatibility.mixin.cold_sweat;
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.registry.DragonModifiers;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
-import de.cadentem.dragonsurvival_compatibility.cold_sweat.ColdSweatUtils;
+import de.cadentem.dragonsurvival_compatibility.compat.cold_sweat.ColdSweatUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;

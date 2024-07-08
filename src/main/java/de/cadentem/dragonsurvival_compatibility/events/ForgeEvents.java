@@ -5,7 +5,7 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
+@Mod.EventBusSubscriber
 public class ForgeEvents {
     @SubscribeEvent
     public static void decrementHideModelTicks(final TickEvent.PlayerTickEvent event) {

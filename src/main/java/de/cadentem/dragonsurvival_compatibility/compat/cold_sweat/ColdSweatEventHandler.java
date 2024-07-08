@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.cold_sweat;
+package de.cadentem.dragonsurvival_compatibility.compat.cold_sweat;
 
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;

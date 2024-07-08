@@ -1,7 +1,7 @@
 package de.cadentem.dragonsurvival_compatibility;
 
 import com.mojang.logging.LogUtils;
-import de.cadentem.dragonsurvival_compatibility.cold_sweat.ColdSweatEventHandler;
+import de.cadentem.dragonsurvival_compatibility.compat.cold_sweat.ColdSweatEventHandler;
 import de.cadentem.dragonsurvival_compatibility.compat.Compat;
 import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;

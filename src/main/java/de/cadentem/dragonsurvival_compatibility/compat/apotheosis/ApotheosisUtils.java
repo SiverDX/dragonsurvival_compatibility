@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.apotheosis;
+package de.cadentem.dragonsurvival_compatibility.compat.apotheosis;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.common.capability.subcapabilities.ClawInventory;
