@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.upgradednetherite;
+package de.cadentem.dragonsurvival_compatibility.compat.upgradednetherite;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;

@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = Block.class, priority = 1500)
-public abstract class MixinBlock {
+public abstract class BlockMixin {
     /* Support for Apotheosis Telepathic Affix */
     @Unique private static BlockState dragonsurvival_compatibility$storedBlockState;
     @Unique private static Player dragonsurvival_compatibility$storedPlayer;

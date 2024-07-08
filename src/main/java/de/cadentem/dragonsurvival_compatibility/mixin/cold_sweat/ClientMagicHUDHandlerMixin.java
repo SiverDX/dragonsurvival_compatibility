@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /** XP bar */
 @Mixin(ClientMagicHUDHandler.class)
-public abstract class MixinClientMagicHUDHandler {
+public abstract class ClientMagicHUDHandlerMixin {
     @Inject(method = "renderExperienceBar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/Font;draw(Lcom/mojang/blaze3d/vertex/PoseStack;Ljava/lang/String;FFI)I", shift = At.Shift.BEFORE, ordinal = 0))
     private static void dragonsurvival_compatibility$renderExperienceBar1(final ForgeGui gui, final PoseStack poseStack, int width, final CallbackInfoReturnable<Boolean> callback) {
         if (ClientConfig.COLD_SWEAT.get() && ConfigSettings.CUSTOM_HOTBAR_LAYOUT.get()) {

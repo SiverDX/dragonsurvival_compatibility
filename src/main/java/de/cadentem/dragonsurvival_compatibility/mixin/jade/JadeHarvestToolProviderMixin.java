@@ -18,7 +18,7 @@ import snownee.jade.api.ui.IElementHelper;
 import java.util.List;
 
 @Mixin(HarvestToolProvider.class)
-public abstract class MixinJadeHarvestToolProvider {
+public abstract class JadeHarvestToolProviderMixin {
     @Unique private BlockAccessor dragonsurvival_compatibility$accessor;
 
     /** @reason Get {@link net.minecraft.world.entity.player.Player} and {@link net.minecraft.world.level.block.state.BlockState} */

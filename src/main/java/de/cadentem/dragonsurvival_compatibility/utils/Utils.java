@@ -1,6 +1,7 @@
 package de.cadentem.dragonsurvival_compatibility.utils;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
+import by.dragonsurvivalteam.dragonsurvival.common.capability.subcapabilities.ClawInventory;
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
@@ -33,12 +34,16 @@ public class Utils {
                     return original;
                 }
 
-                if (blockState.is(BlockTags.MINEABLE_WITH_PICKAXE) && clawsInventory.getItem(1) != ItemStack.EMPTY) {
-                    return clawsInventory.getItem(1);
-                } else if (blockState.is(BlockTags.MINEABLE_WITH_AXE) && clawsInventory.getItem(2) != ItemStack.EMPTY) {
-                    return clawsInventory.getItem(2);
-                } else if (blockState.is(BlockTags.MINEABLE_WITH_SHOVEL) && clawsInventory.getItem(3) != ItemStack.EMPTY) {
-                    return clawsInventory.getItem(3);
+                ItemStack pickaxe = clawsInventory.getItem(ClawInventory.Slot.PICKAXE.ordinal());
+                ItemStack axe = clawsInventory.getItem(ClawInventory.Slot.AXE.ordinal());
+                ItemStack shovel = clawsInventory.getItem(ClawInventory.Slot.SHOVEL.ordinal());
+
+                if (!pickaxe.isEmpty() && blockState.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
+                    return pickaxe;
+                } else if (!axe.isEmpty() && blockState.is(BlockTags.MINEABLE_WITH_AXE)) {
+                    return axe;
+                } else if (!shovel.isEmpty() && blockState.is(BlockTags.MINEABLE_WITH_SHOVEL)) {
+                    return shovel;
                 }
 
                 return ClawToolHandler.getDragonHarvestTool(player, blockState);

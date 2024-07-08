@@ -6,7 +6,7 @@ import de.cadentem.dragonsurvival_compatibility.compat.Compat;
 import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
-import de.cadentem.dragonsurvival_compatibility.upgradednetherite.UpgradedNetheriteEventHandler;
+import de.cadentem.dragonsurvival_compatibility.compat.upgradednetherite.UpgradedNetheriteEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
