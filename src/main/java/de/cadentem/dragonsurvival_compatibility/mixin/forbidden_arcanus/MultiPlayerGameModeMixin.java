@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = MultiPlayerGameMode.class, priority = 1500)
-public abstract class MixinMultiPlayerGameMode {
+public abstract class MultiPlayerGameModeMixin {
     @TargetHandler(mixin = "com.stal111.forbidden_arcanus.core.mixin.MultiPlayerGameModeMixin", name = "forbiddenArcanus_continueDestroyBlock$updateBlockBreaker")
     @Inject(method = "@MixinSquared:Handler", at = @At(value = "HEAD"))
     private void dragonsurvival_compatibility$storeBlockPosition(final BlockPos blockPosition, final Direction facing, final CallbackInfoReturnable<Boolean> originalCallback, final CallbackInfo callback, @Share("blockPosition") final LocalRef<BlockPos> storedBlockPosition) {

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = DragonModifiers.class, remap = false)
-public class MixinDragonStateHandler {
+public class DragonStateHandlerMixin {
     @Inject(method = "updateModifiers", at = @At(value = "RETURN"))
     private static void addTemperatureModifier(final Player player, final CallbackInfo callback) {
         DragonStateHandler handler = DragonUtils.getHandler(player);

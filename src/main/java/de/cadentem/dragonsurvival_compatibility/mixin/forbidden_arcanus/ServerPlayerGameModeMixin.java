@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(value = ServerPlayerGameMode.class, priority = 1500)
-public abstract class MixinServerPlayerGameMode {
+public abstract class ServerPlayerGameModeMixin {
     @TargetHandler(mixin = "com.stal111.forbidden_arcanus.core.mixin.ServerPlayerGameModeMixin", name = "forbiddenArcanus_incrementDestroyProgress")
     @Inject(method = "@MixinSquared:Handler", at = @At(value = "HEAD"))
     private void storeBlockState(final BlockState blockState, final BlockPos blockPosition, int destroyProgressStart, final CallbackInfoReturnable<Float> originalCallback, final CallbackInfo callback, @Share("blockState") final LocalRef<BlockState> storedBlockState) {

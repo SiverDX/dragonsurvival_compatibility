@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ClientMagicHUDHandler.class)
-public abstract class MixinClientMagicHUDHandler {
+public abstract class ClientMagicHUDHandlerMixin {
     @Inject(method = "renderExperienceBar", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;drawString(Lnet/minecraft/client/gui/Font;Ljava/lang/String;IIIZ)I", shift = At.Shift.BEFORE, ordinal = 0))
     private static void dragonsurvival_compatibility$renderExperienceBar1(final ForgeGui gui, final GuiGraphics guiGraphics, int width, final CallbackInfoReturnable<Boolean> callback) {
         if (ClientConfig.COLD_SWEAT.get() && ClientSettingsConfig.getInstance().customHotbarEnabled()) {

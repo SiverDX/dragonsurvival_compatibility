@@ -6,13 +6,13 @@
   "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
-    "apotheosis.MixinClawToolHandler",
-    "apotheosis.affix.MixinBlock",
+    "apotheosis.ClawToolHandlerMixin",
+    "apotheosis.affix.BlockMixin",
     "apotheosis.affix.OmneticAffixAccessor",
     "apotheosis.affix.OmneticDataAccessor",
     "bettercombat.PlayerMixin",
-    "cold_sweat.MixinDragonStateHandler",
-    "forbidden_arcanus.MixinServerPlayerGameMode"
+    "cold_sweat.DragonStateHandlerMixin",
+    "forbidden_arcanus.ServerPlayerGameModeMixin"
   ],
   "client": [
     "bettercombat.AbstractClientPlayerMixin",
@@ -21,9 +21,9 @@
     "bettercombat.DragonRendererMixin",
     "bettercombat.LevelRendererMixin",
     "bettercombat.PlayerModelMixin",
-    "cold_sweat.MixinClientMagicHUDHandler",
-    "forbidden_arcanus.MixinMultiPlayerGameMode",
-    "jade.MixinJadeHarvestToolProvider",
+    "cold_sweat.ClientMagicHUDHandlerMixin",
+    "forbidden_arcanus.MultiPlayerGameModeMixin",
+    "jade.JadeHarvestToolProviderMixin",
     "wthit.HarvestProviderMixin"
   ]
 }
