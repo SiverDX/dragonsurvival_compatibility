@@ -2,12 +2,13 @@ package de.cadentem.dragonsurvival_compatibility;
 
 import com.mojang.logging.LogUtils;
 import de.cadentem.dragonsurvival_compatibility.cold_sweat.ColdSweatEventHandler;
+import de.cadentem.dragonsurvival_compatibility.compat.Compat;
+import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import de.cadentem.dragonsurvival_compatibility.upgradednetherite.UpgradedNetheriteEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -26,12 +27,16 @@ public class DragonSurvivalCompatibility {
 
         FMLJavaModLoadingContext.get().getModEventBus().register(this);
 
-        if (ModList.get().isLoaded("upgradednetherite")) {
+        if (Compat.isModLoaded(Compat.Mod.UPGRADED_NETHERITE)) {
             MinecraftForge.EVENT_BUS.register(new UpgradedNetheriteEventHandler());
         }
 
-        if (ModList.get().isLoaded("cold_sweat")) {
-            MinecraftForge.EVENT_BUS.register(new ColdSweatEventHandler());
+        if (Compat.isModLoaded(Compat.Mod.COLD_SWEAT)) {
+            MinecraftForge.EVENT_BUS.addListener(ColdSweatEventHandler::handleAttributes);
+        }
+
+        if (Compat.isModLoaded(Compat.Mod.BETTERCOMBAT)) {
+            MinecraftForge.EVENT_BUS.addListener(AnimationUtils::removeEntry);
         }
     }
     @SubscribeEvent

@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.TierSortingRegistry;
 
 public class Utils {
-    public static float HIDE_MODEL_LENGTH;
-
     public static ItemStack getDragonHarvestTool(final ItemStack original, final Player player, final BlockState blockState) {
         return getDragonHarvestTool(original, player, blockState, DragonUtils.getHandler(player));
     }
