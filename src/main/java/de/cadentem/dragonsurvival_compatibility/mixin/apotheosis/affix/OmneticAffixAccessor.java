@@ -15,10 +15,10 @@ import java.util.Map;
 @Mixin(value = OmneticAffix.class, remap = false)
 public interface OmneticAffixAccessor {
     @Accessor("values")
-    Map<LootRarity, OmneticDataAccessor> getValues();
+    Map<LootRarity, OmneticDataAccessor> dragonsurvival_compatibility$getValues();
 
     @Invoker("getBaseSpeed")
-    static float getBaseSpeed(Player player, ItemStack tool, BlockState state, BlockPos pos) {
+    static float dragonsurvival_compatibility$getBaseSpeed(Player player, ItemStack tool, BlockState state, BlockPos pos) {
         throw new AssertionError();
     }
 }

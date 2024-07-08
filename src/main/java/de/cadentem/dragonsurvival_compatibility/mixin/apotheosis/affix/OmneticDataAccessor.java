@@ -7,5 +7,5 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(targets = "shadows.apotheosis.adventure.affix.effect.OmneticAffix$OmneticData", remap = false)
 public interface OmneticDataAccessor {
     @Accessor("items")
-    ItemStack[] getItems();
+    ItemStack[] dragonsurvival_compatibility$getItems();
 }

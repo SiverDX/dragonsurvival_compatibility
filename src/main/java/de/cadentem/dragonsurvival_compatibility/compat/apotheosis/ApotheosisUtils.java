@@ -1,6 +1,7 @@
-package de.cadentem.dragonsurvival_compatibility.apotheosis;
+package de.cadentem.dragonsurvival_compatibility.compat.apotheosis;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
+import by.dragonsurvivalteam.dragonsurvival.common.capability.subcapabilities.ClawInventory;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import com.mojang.datafixers.util.Pair;
@@ -37,7 +38,7 @@ public class ApotheosisUtils {
                 float highestLevel = -1;
                 ItemStack bestItem = handler.switchedTool ? original : ItemStack.EMPTY;
 
-                for (int i = 0; i < 4; i++) {
+                for (int i = 0; i < ClawInventory.Slot.size(); i++) {
                     ItemStack clawTool = clawsInventory.getItem(i);
                     AffixInstance affixInstance = AffixHelper.getAffixes(clawTool).get(affix);
 
@@ -95,10 +96,10 @@ public class ApotheosisUtils {
             AffixInstance affixInstance = AffixHelper.getAffixes(itemStack).get(affix);
 
             if (affixInstance != null) {
-                OmneticDataAccessor omneticData = ((OmneticAffixAccessor) affix).getValues().get(affixInstance.rarity());
+                OmneticDataAccessor omneticData = ((OmneticAffixAccessor) affix).dragonsurvival_compatibility$getValues().get(affixInstance.rarity());
 
-                for (ItemStack omneticItem : omneticData.getItems()) {
-                    speed = Math.max(OmneticAffixAccessor.getBaseSpeed(player, omneticItem, blockState, BlockPos.ZERO), speed);
+                for (ItemStack omneticItem : omneticData.dragonsurvival_compatibility$getItems()) {
+                    speed = Math.max(OmneticAffixAccessor.dragonsurvival_compatibility$getBaseSpeed(player, omneticItem, blockState, BlockPos.ZERO), speed);
                 }
             }
         }
