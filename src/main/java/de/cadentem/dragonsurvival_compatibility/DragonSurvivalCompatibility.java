@@ -6,7 +6,6 @@ import de.cadentem.dragonsurvival_compatibility.compat.Compat;
 import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
-import de.cadentem.dragonsurvival_compatibility.compat.upgradednetherite.UpgradedNetheriteEventHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -26,10 +25,6 @@ public class DragonSurvivalCompatibility {
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.SPEC);
 
         FMLJavaModLoadingContext.get().getModEventBus().register(this);
-
-        if (Compat.isModLoaded(Compat.Mod.UPGRADED_NETHERITE)) {
-            MinecraftForge.EVENT_BUS.register(new UpgradedNetheriteEventHandler());
-        }
 
         if (Compat.isModLoaded(Compat.Mod.COLD_SWEAT)) {
             MinecraftForge.EVENT_BUS.addListener(ColdSweatEventHandler::handleAttributes);

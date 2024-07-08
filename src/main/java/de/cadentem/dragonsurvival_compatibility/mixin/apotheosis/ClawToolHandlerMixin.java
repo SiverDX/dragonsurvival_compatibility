@@ -1,12 +1,13 @@
 package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
 
 import by.dragonsurvivalteam.dragonsurvival.common.capability.DragonStateHandler;
+import by.dragonsurvivalteam.dragonsurvival.common.capability.subcapabilities.ClawInventory;
 import by.dragonsurvivalteam.dragonsurvival.common.handlers.magic.ClawToolHandler;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import com.mojang.datafixers.util.Pair;
-import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import de.cadentem.dragonsurvival_compatibility.apotheosis.ApotheosisUtils;
+import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /** Search for the best (harvest related) affixed Apotheosis item */
 @Mixin(value = ClawToolHandler.class, remap = false)
-public class ClawToolHandlerMixin { // TODO :: Check if tool is effective for the block and prefer that over a non-effective tool with Omnetic?
+public abstract class ClawToolHandlerMixin {
     @Inject(method = "getDragonHarvestToolAndSlot", at = @At("HEAD"), cancellable = true)
     private static void getAffixedDragonHarvestToolAndSlot(final Player player, final BlockState blockState, final CallbackInfoReturnable<Pair<ItemStack, Integer>> callback) {
         if (!ServerConfig.APOTHEOSIS.get()) {
@@ -40,8 +41,8 @@ public class ClawToolHandlerMixin { // TODO :: Check if tool is effective for th
             float compareRadialLevel = affixes.getSecond();
             float compareHarvestSpeed = ApotheosisUtils.getOmneticSpeed(player, result, blockState);
 
-            for (int i = 0; i < 4; i++) {
-                ItemStack clawTool = clawsInventory.getItem(i);
+            for (int slot = 0; slot < ClawInventory.Slot.size(); slot++) {
+                ItemStack clawTool = clawsInventory.getItem(slot);
 
                 if (clawTool == ItemStack.EMPTY) {
                     continue;
@@ -63,7 +64,7 @@ public class ClawToolHandlerMixin { // TODO :: Check if tool is effective for th
                     compareHarvestSpeed = clawToolHarvestSpeed;
 
                     result = clawTool;
-                    toolSlot = i;
+                    toolSlot = slot;
                 }
             }
 

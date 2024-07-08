@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(value = DragonRenderer.class, remap = false)
 public abstract class DragonRendererMixin {
-    @ModifyExpressionValue(method = "renderRecursively", at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, ordinal = 2))
+    @ModifyExpressionValue(method = "renderRecursively(Lcom/mojang/blaze3d/vertex/PoseStack;Lby/dragonsurvivalteam/dragonsurvival/common/entity/DragonEntity;Lsoftware/bernie/geckolib/cache/object/GeoBone;Lnet/minecraft/client/renderer/RenderType;Lnet/minecraft/client/renderer/MultiBufferSource;Lcom/mojang/blaze3d/vertex/VertexConsumer;ZFIIFFFF)V", at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, ordinal = 0))
     private boolean dragonsurvival_compatibility$hideHeldItem(boolean renderHeldItem, @Local final Player player) {
         return renderHeldItem && !AnimationUtils.shouldHideModel(player);
     }
