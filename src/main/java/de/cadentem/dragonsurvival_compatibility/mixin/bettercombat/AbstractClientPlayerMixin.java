@@ -2,9 +2,8 @@ package de.cadentem.dragonsurvival_compatibility.mixin.bettercombat;
 
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import com.bawnorton.mixinsquared.TargetHandler;
-import de.cadentem.dragonsurvival_compatibility.utils.Utils;
+import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;
 import net.bettercombat.logic.AnimatedHand;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -18,8 +17,8 @@ public abstract class AbstractClientPlayerMixin {
     private void dragonsurvival_compatibility$hideBodyPart(final String name, final AnimatedHand animatedHand, float length, float upswing, final CallbackInfo callback) {
         AbstractClientPlayer player = (AbstractClientPlayer) (Object) this;
 
-        if (player == Minecraft.getInstance().player && DragonUtils.isDragon(player)) {
-            Utils.HIDE_MODEL_LENGTH = length * upswing + length;
+        if (DragonUtils.isDragon(player)) {
+            AnimationUtils.start(player, (int) (length * upswing + length));
         }
     }
 }
