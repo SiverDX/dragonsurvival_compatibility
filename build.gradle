@@ -79,7 +79,7 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    implementation fg.deobf("curse.maven:cold-sweat-506194:5503464") // 2.3-b04d
+    implementation fg.deobf("curse.maven:cold-sweat-506194:5518753") // 2.3-b04e
 
     // Jade Support
     implementation fg.deobf("curse.maven:jade-324717:5390389") // 11.9.3
