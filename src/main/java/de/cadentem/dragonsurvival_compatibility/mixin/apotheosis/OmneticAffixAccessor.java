@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
+package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
 
 import dev.shadowsoffire.apotheosis.adventure.affix.effect.OmneticAffix;
 import dev.shadowsoffire.apotheosis.adventure.loot.LootRarity;

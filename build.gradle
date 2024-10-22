@@ -79,10 +79,10 @@ dependencies {
 
     // # --- Mods --- #
     // Cold Sweat
-    implementation fg.deobf("curse.maven:cold-sweat-506194:5633751") // 2.3
+    implementation fg.deobf("curse.maven:cold-sweat-506194:5832354") // 2.3.6
 
     // Jade Support
-    implementation fg.deobf("curse.maven:jade-324717:5390389") // 11.9.3
+    implementation fg.deobf("curse.maven:jade-324717:5776962") // 11.12.1
 
     // WTHIT Support
     compileOnly fg.deobf("curse.maven:wthit-forge-455982:5401194") // 8.12.0
@@ -98,9 +98,9 @@ dependencies {
     compileOnly fg.deobf("curse.maven:valhelsia-core-416935:4735319") // 1.1.1
 
     // Apotheosis
-    implementation fg.deobf("curse.maven:apotheosis-313970:5486368") // 7.4.0
+    implementation fg.deobf("curse.maven:apotheosis-313970:5753183") // 7.4.3
     implementation fg.deobf("curse.maven:placebo-283644:5414631") // 8.6.2
-    implementation fg.deobf("curse.maven:apothic-attributes-898963:5340012") // 1.3.5
+    implementation fg.deobf("curse.maven:apothic-attributes-898963:5634071") // 1.3.7
 
     /* --- Mixin Configuration --- */
     implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared_version}"))

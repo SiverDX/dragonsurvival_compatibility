@@ -7,9 +7,10 @@
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
     "apotheosis.ClawToolHandlerMixin",
-    "apotheosis.affix.BlockMixin",
-    "apotheosis.affix.OmneticAffixAccessor",
-    "apotheosis.affix.OmneticDataAccessor",
+    "apotheosis.BlockMixin",
+    "apotheosis.OmneticAffixAccessor",
+    "apotheosis.OmneticDataAccessor",
+    "attributeslib.AttributeEventsMixin",
     "bettercombat.PlayerMixin",
     "cold_sweat.DragonStateHandlerMixin",
     "forbidden_arcanus.ServerPlayerGameModeMixin"

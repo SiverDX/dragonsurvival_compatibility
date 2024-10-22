@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
+package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
 
 import com.bawnorton.mixinsquared.TargetHandler;
 import com.llamalad7.mixinextras.sugar.Local;

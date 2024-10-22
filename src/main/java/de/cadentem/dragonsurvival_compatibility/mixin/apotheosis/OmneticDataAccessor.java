@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix;
+package de.cadentem.dragonsurvival_compatibility.mixin.apotheosis;
 
 import net.minecraft.world.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;

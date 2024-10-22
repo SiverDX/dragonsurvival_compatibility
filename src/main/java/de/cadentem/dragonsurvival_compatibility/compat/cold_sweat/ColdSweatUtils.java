@@ -16,6 +16,10 @@ public class ColdSweatUtils {
     public static void addModifiers(final Player player, final DragonStateHandler handler) {
         ColdSweatUtils.removeModifiers(player);
 
+        if (!ServerConfig.COLD_SWEAT.get()) {
+            return;
+        }
+
         ServerConfig.COLD_SWEAT_ATTRIBUTES.forEach((key, value) -> {
             if (handler.getTypeName().equals(key)) {
                 ColdSweatUtils.addModifier(player, ModAttributes.COLD_RESISTANCE, "[Dragon] Cold Resistance", value.coldResistance.get());

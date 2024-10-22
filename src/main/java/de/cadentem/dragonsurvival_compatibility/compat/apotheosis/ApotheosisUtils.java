@@ -5,8 +5,8 @@ import by.dragonsurvivalteam.dragonsurvival.common.capability.subcapabilities.Cl
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import by.dragonsurvivalteam.dragonsurvival.util.ToolUtils;
 import com.mojang.datafixers.util.Pair;
-import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.OmneticAffixAccessor;
-import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.affix.OmneticDataAccessor;
+import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.OmneticAffixAccessor;
+import de.cadentem.dragonsurvival_compatibility.mixin.apotheosis.OmneticDataAccessor;
 import de.cadentem.dragonsurvival_compatibility.utils.Utils;
 import dev.shadowsoffire.apotheosis.adventure.affix.Affix;
 import dev.shadowsoffire.apotheosis.adventure.affix.AffixHelper;
