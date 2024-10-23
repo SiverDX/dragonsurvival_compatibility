@@ -6,14 +6,12 @@ import de.cadentem.dragonsurvival_compatibility.config.ServerConfig;
 import dev.shadowsoffire.attributeslib.impl.AttributeEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 /** Dragon breath shouldn't constantly trigger the melee damage attacks */
-@Debug(export = true)
 @Mixin(value = AttributeEvents.class, remap = false)
 public abstract class AttributeEventsMixin {
     @Inject(method = "meleeDamageAttributes", at = @At("HEAD"), cancellable = true)
