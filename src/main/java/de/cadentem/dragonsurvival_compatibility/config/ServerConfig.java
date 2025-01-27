@@ -32,21 +32,23 @@ public class ServerConfig {
 
             // Cold
             double coldResistanceDefault = dragonType.equals(SEA_DRAGON) ? 1.0 : dragonType.equals(FOREST_DRAGON) ? 0.3 : 0;
-            coldSweatAttributes.coldResistance = BUILDER.comment("Dragon Cold Resistance (Resistance against freezing damage and effects)").defineInRange("cold_resistance", coldResistanceDefault, 0, 1);
+            coldSweatAttributes.coldResistance = BUILDER.comment("Controls the entity's resistance to incoming freezing damage, including that from non-temperature-related sources like powder snow.\nRepresents the percent of incoming damage to be blocked.").defineInRange("cold_resistance", coldResistanceDefault, 0, 1);
             double coldDampeningDefault = dragonType.equals(FOREST_DRAGON) ? 0.2 : 0;
-            coldSweatAttributes.coldDampening = BUILDER.comment("Dragon Cold Dampening (Slows (negative values accelerate) the rate at of freezing)").defineInRange("cold_dampening", coldDampeningDefault, -1024, 1);
-            coldSweatAttributes.freezingPoint = BUILDER.comment("Offset to the temperature threshold, after which a dragon's body temperature starts falling").defineInRange("freezing_point", 0d, -1024, 1024);
+            coldSweatAttributes.coldDampening = BUILDER.comment("Controls the entity's rate of freezing. Higher values decrease freezing speed, and negative values increase the speed.").defineInRange("cold_dampening", coldDampeningDefault, -1024, 1);
+            double freezingPointDefault = dragonType.equals(SEA_DRAGON) ? -1024 : 0;
+            coldSweatAttributes.freezingPoint = BUILDER.comment("Controls the temperature at which the entity begins to freeze, in MC units.").defineInRange("freezing_point", freezingPointDefault, -1024, 1024);
 
             // Heat
             double heatResistanceDefault = dragonType.equals(CAVE_DRAGON) ? 1.0 : dragonType.equals(FOREST_DRAGON) ? 0.3 : 0;
-            coldSweatAttributes.heatResistance = BUILDER.comment("Dragon Heat Resistance (Resistance against burning damage and effects)").defineInRange("heat_resistance", heatResistanceDefault, 0, 1);
+            coldSweatAttributes.heatResistance = BUILDER.comment("Controls the entity's resistance to incoming overheating damage.\nRepresents the percent of incoming damage to be blocked.").defineInRange("heat_resistance", heatResistanceDefault, 0, 1);
             double heatDampeningDefault = dragonType.equals(FOREST_DRAGON) ? 0.2 : 0;
-            coldSweatAttributes.heatDampening = BUILDER.comment("Dragon Heat Dampening (Slows (negative values accelerate) the rate at of overheating)").defineInRange("heat_dampening", heatDampeningDefault, -1024, 1);
-            coldSweatAttributes.burningPoint = BUILDER.comment("Offset to the temperature threshold, after which a dragon's body temperature starts rising").defineInRange("burning_point", 0d, -1024, 1024);
+            coldSweatAttributes.heatDampening = BUILDER.comment("Controls the entity's rate of overheating. Higher values decrease overheating speed, and negative values increase the speed.").defineInRange("heat_dampening", heatDampeningDefault, -1024, 1);
+            double burningPointDefault = dragonType.equals(CAVE_DRAGON) ? 1024 : 0;
+            coldSweatAttributes.burningPoint = BUILDER.comment("Controls the temperature at which the entity begins to overheat, in MC units.").defineInRange("burning_point", burningPointDefault, -1024, 1024);
 
             // General
-            coldSweatAttributes.baseTemperature = BUILDER.comment("Dragon Base Temperature (The body temperature (applied once)").defineInRange("base_temperature", 0d, -150, 150);
-            coldSweatAttributes.worldTemperature = BUILDER.comment("Dragon World Temperature (The perceived world temperature)").defineInRange("world_temperature", 0d, -1024, 1024);
+            coldSweatAttributes.baseTemperature = BUILDER.comment("Controls the entity's base body temperature, (AKA an offset to the entity's body temperature).").defineInRange("base_temperature", 0d, -150, 150);
+            coldSweatAttributes.worldTemperature = BUILDER.comment("Controls the entity's world temperature.").defineInRange("world_temperature", 0d, -1024, 1024);
 
             COLD_SWEAT_ATTRIBUTES.put(dragonType, coldSweatAttributes);
             BUILDER.pop();

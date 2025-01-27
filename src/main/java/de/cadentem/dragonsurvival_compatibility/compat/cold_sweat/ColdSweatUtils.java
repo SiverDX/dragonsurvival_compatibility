@@ -64,7 +64,6 @@ public class ColdSweatUtils {
                 attributeInstance.removeModifier(modifier);
             }
 
-            attributeInstance.setBaseValue(0);
             attributeInstance.addPermanentModifier(modifier);
         }
     }

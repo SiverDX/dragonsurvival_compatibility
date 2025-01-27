@@ -6,13 +6,13 @@
   "plugin": "de.cadentem.dragonsurvival_compatibility.mixin.ApplyMixinPlugin",
   "refmap": "dragonsurvival_compatibility.refmap.json",
   "mixins": [
-    "apotheosis.ClawToolHandlerMixin",
     "apotheosis.BlockMixin",
+    "apotheosis.ClawToolHandlerMixin",
     "apotheosis.OmneticAffixAccessor",
     "apotheosis.OmneticDataAccessor",
     "attributeslib.AttributeEventsMixin",
     "bettercombat.PlayerMixin",
-    "cold_sweat.DragonStateHandlerMixin",
+    "cold_sweat.DragonModifiersMixin",
     "forbidden_arcanus.ServerPlayerGameModeMixin"
   ],
   "client": [

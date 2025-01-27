@@ -28,6 +28,7 @@ public class DragonSurvivalCompatibility {
 
         if (Compat.isModLoaded(Compat.Mod.COLD_SWEAT)) {
             MinecraftForge.EVENT_BUS.addListener(ColdSweatEventHandler::handleAttributes);
+            FMLJavaModLoadingContext.get().getModEventBus().addListener(ColdSweatEventHandler::attachAttributes);
         }
 
         if (Compat.isModLoaded(Compat.Mod.BETTERCOMBAT)) {
