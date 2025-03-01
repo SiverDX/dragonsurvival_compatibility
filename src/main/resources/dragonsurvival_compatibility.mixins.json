@@ -20,6 +20,7 @@
     "bettercombat.AnimationApplierMixin",
     "bettercombat.ClientDragonRenderMixin",
     "bettercombat.DragonRendererMixin",
+    "bettercombat.HumanoidArmorLayerMixin",
     "bettercombat.LevelRendererMixin",
     "bettercombat.PlayerModelMixin",
     "cold_sweat.ClientMagicHUDHandlerMixin",
