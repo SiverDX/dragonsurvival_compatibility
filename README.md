@@ -33,4 +33,4 @@ These compatibilities will only load if the relevant mod is present and their fu
 - Support for the Terrastomp Prism block break effect
 
 [Iron's Spells 'n Spellbooks](https://www.curseforge.com/minecraft/mc-mods/irons-spells-n-spellbooks)
-- Hide model through spell animation
+- Hide model through spell animation (in first person)

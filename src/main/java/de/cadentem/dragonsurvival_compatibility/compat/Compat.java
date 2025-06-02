@@ -24,7 +24,8 @@ public class Compat {
     public enum Mod {
         BETTERCOMBAT("bettercombat"),
         UPGRADED_NETHERITE("upgradednetherite"),
-        COLD_SWEAT("cold_sweat");
+        COLD_SWEAT("cold_sweat"),
+        IRONS_SPELLBOOKS("irons_spellbooks");
 
         public final String modId;
 

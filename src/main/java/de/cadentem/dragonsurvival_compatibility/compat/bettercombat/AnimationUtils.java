@@ -1,5 +1,6 @@
 package de.cadentem.dragonsurvival_compatibility.compat.bettercombat;
 
+import de.cadentem.dragonsurvival_compatibility.compat.Compat;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
 import io.redspace.ironsspellbooks.player.ClientMagicData;
@@ -11,7 +12,7 @@ public class AnimationUtils {
     public static Player CURRENT_PLAYER;
     
     public enum Type {
-        BETTERCOMBAT, IRON_SPELLBOOKS;
+        BETTERCOMBAT, IRONS_SPELLBOOKS;
     }
 
     public static boolean isAttacking(@Nullable final Player player) {
@@ -23,7 +24,7 @@ public class AnimationUtils {
             return true;
         }
 
-        return isAttacking(player, Type.IRON_SPELLBOOKS);
+        return isAttacking(player, Type.IRONS_SPELLBOOKS);
     }
 
     public static boolean isAttacking(@Nullable final Player player, final Type type) {
@@ -34,9 +35,13 @@ public class AnimationUtils {
         return switch (type) {
             case BETTERCOMBAT:
                 yield ClientConfig.BETTERCOMBAT.get() && player instanceof AttackAnimationAccess access && access.dragonsurvival_compatibility$hasActiveAnimation();
-            case IRON_SPELLBOOKS:
+            case IRONS_SPELLBOOKS:
+                if (!ClientConfig.IRONS_SPELLBOOKS.get() || !Compat.isModLoaded(Compat.Mod.IRONS_SPELLBOOKS)) {
+                    yield false;
+                }
+
                 KeyframeAnimationPlayer animation = ClientMagicData.castingAnimationPlayerLookup.get(player.getUUID());
-                yield ClientConfig.IRONS_SPELLBOOKS.get() && animation != null && animation.isActive();
+                yield animation != null && animation.isActive();
         };
     }
 }

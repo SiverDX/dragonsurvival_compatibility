@@ -4,7 +4,6 @@ import by.dragonsurvivalteam.dragonsurvival.client.render.ClientDragonRender;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;
-import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,7 +26,7 @@ public abstract class ClientDragonRenderMixin {
             // Only make the parts invisible so that the weapon is still rendered
             event.getRenderer().getModel().setAllVisible(false);
             isAttacking = true;
-        } else if (AnimationUtils.isAttacking(event.getEntity(), AnimationUtils.Type.IRON_SPELLBOOKS)) {
+        } else if (AnimationUtils.isAttacking(event.getEntity(), AnimationUtils.Type.IRONS_SPELLBOOKS)) {
             // Prevent the hands from being rendered
             event.setCanceled(true);
             isAttacking = true;
