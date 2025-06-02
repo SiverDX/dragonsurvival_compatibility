@@ -18,7 +18,7 @@ public abstract class AnimationApplierMixin {
     /** @reason Adjust the Better Combat attack animation to the dragon size */
     @Inject(method = "updatePart", at = @At("TAIL"), remap = false)
     public void dragonsurvival_compatibility$offsetAttackAnimation(final String partName, final ModelPart part, final CallbackInfo callback) {
-        if (ClientConfig.BETTERCOMBAT.get() && AnimationUtils.shouldHideModel(AnimationUtils.CURRENT_PLAYER)) {
+        if (ClientConfig.BETTERCOMBAT.get() && AnimationUtils.isAttacking(AnimationUtils.CURRENT_PLAYER)) {
             if (partName.equals("rightArm") || partName.equals("leftArm")) {
                 DragonStateHandler handler = DragonUtils.getHandler(AnimationUtils.CURRENT_PLAYER);
 

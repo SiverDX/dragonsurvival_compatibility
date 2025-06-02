@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class HumanoidArmorLayerMixin<T extends LivingEntity, M extends HumanoidModel<T>, A extends HumanoidModel<T>> {
     @Inject(method = "render(Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;ILnet/minecraft/world/entity/LivingEntity;FFFFFF)V", at = @At("HEAD"), cancellable = true)
     private void dragonsurvival_compatibility$hideArmor(final CallbackInfo callback, @Local(argsOnly = true) final T entity) {
-        if (entity instanceof Player player && AnimationUtils.shouldHideModel(player) && DragonUtils.isDragon(player)) {
+        if (entity instanceof Player player && AnimationUtils.isAttacking(player) && DragonUtils.isDragon(player)) {
             callback.cancel();
         }
     }

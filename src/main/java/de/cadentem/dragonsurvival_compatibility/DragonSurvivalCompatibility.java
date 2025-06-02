@@ -30,10 +30,6 @@ public class DragonSurvivalCompatibility {
             MinecraftForge.EVENT_BUS.addListener(ColdSweatEventHandler::handleAttributes);
             FMLJavaModLoadingContext.get().getModEventBus().addListener(ColdSweatEventHandler::attachAttributes);
         }
-
-        if (Compat.isModLoaded(Compat.Mod.BETTERCOMBAT)) {
-            MinecraftForge.EVENT_BUS.addListener(AnimationUtils::removeEntry);
-        }
     }
     @SubscribeEvent
     public void reloadConfiguration(final ModConfigEvent.Reloading event) {

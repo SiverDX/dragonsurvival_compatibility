@@ -18,7 +18,7 @@ public abstract class ClientDragonRenderMixin {
     @Inject(method = "thirdPersonPreRender", at = @At("HEAD"), cancellable = true, remap = false)
     private static void dragonsurvival_compatibility$modifyRender(final RenderPlayerEvent.Pre event, final CallbackInfo callback) {
         if (ClientConfig.BETTERCOMBAT.get()) {
-            if (!AnimationUtils.shouldHideModel(event.getEntity())) {
+            if (!AnimationUtils.isAttacking(event.getEntity())) {
                 return;
             }
 
@@ -37,7 +37,7 @@ public abstract class ClientDragonRenderMixin {
     /** Render the tool when attacking */
     @WrapWithCondition(method = "thirdPersonPreRender", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/client/event/RenderPlayerEvent$Pre;setCanceled(Z)V"))
     private static boolean dragonsurvival_compatibility$renderTool(final RenderPlayerEvent.Pre instance, boolean isCancelled) {
-        if (ClientConfig.BETTERCOMBAT.get() && AnimationUtils.shouldHideModel(instance.getEntity())) {
+        if (ClientConfig.BETTERCOMBAT.get() && AnimationUtils.isAttacking(instance.getEntity())) {
             return false;
         }
 

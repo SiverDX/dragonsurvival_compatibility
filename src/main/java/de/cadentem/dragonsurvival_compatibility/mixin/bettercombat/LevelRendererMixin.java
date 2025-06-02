@@ -19,7 +19,7 @@ public abstract class LevelRendererMixin {
     @TargetHandler(mixin = "by.dragonsurvivalteam.dragonsurvival.mixins.MixinWorldRenderer", name = "render")
     @ModifyExpressionValue(method = "@MixinSquared:Handler", at = @At(value = "FIELD", opcode = Opcodes.GETSTATIC, ordinal = 0))
     private Boolean dragonsurvival_compatibility$hideBodyPart(final Boolean renderInFirstPerson, @Local(argsOnly = true) final Camera camera) {
-        if (ClientConfig.BETTERCOMBAT.get() && Minecraft.getInstance().options.getCameraType().isFirstPerson() && camera.getEntity() instanceof Player player && AnimationUtils.shouldHideModel(player)) {
+        if (ClientConfig.BETTERCOMBAT.get() && Minecraft.getInstance().options.getCameraType().isFirstPerson() && camera.getEntity() instanceof Player player && AnimationUtils.isAttacking(player)) {
             return false;
         }
 
