@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.bettercombat;
+package de.cadentem.dragonsurvival_compatibility.mixin._animation;
 
 import by.dragonsurvivalteam.dragonsurvival.client.render.entity.dragon.DragonRenderer;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

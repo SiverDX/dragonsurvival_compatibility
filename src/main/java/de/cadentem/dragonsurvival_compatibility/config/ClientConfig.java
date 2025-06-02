@@ -11,6 +11,7 @@ public class ClientConfig {
     public static ForgeConfigSpec.BooleanValue JADE;
     public static ForgeConfigSpec.BooleanValue WTHIT;
     public static ForgeConfigSpec.BooleanValue COLD_SWEAT;
+    public static ForgeConfigSpec.BooleanValue IRONS_SPELLBOOKS;
 
     static {
         BUILDER.push("Activate or Disable");
@@ -18,6 +19,7 @@ public class ClientConfig {
         JADE = BUILDER.comment("Enable Jade compatibility").define("enable_jade", true);
         WTHIT = BUILDER.comment("Enable WTHIT compatibility").define("wthit", true);
         COLD_SWEAT = BUILDER.comment("Enable Cold Sweat compatibility (render changes)").define("cold_sweat", true);
+        IRONS_SPELLBOOKS = BUILDER.comment("Enable Iron's Spells 'n Spellbooks compatibility").define("irons_spellbooks", true);
         BUILDER.pop();
 
         SPEC = BUILDER.build();

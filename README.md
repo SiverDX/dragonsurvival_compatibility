@@ -6,7 +6,7 @@ These compatibilities will only load if the relevant mod is present and their fu
 
 [Better Combat](https://www.curseforge.com/minecraft/mc-mods/better-combat-by-daedelus)
 - Attack animation
-- Sweep support
+- Re-enable vanilla sweep when dragon claw inventory sword is used to attack
 
 [Cold Sweat](https://www.curseforge.com/minecraft/mc-mods/cold-sweat)
 - The temperature attributes are configurable per dragon type
@@ -22,5 +22,15 @@ These compatibilities will only load if the relevant mod is present and their fu
 - Support for Telepathic (teleport dropped items), Omnetic (effectiveness for all blocks) and Radial (x by x block break) affixes
 - Tools with higher break speed (incl. Omnetic) take priority over tools with the Radial affix
 
+[Apothic Attributes (AttributesLib)](https://www.curseforge.com/minecraft/mc-mods/apothic-attributes)
+- Dragon breath (and the resulting burn or drain dot) no longer trigger:
+    - current hp damage
+    - fire damage
+    - cold damage
+- (This behaviour can be disabled through the Apotheosis configuration flag)
+
 [Forbidden and Arcanus](https://www.curseforge.com/minecraft/mc-mods/forbidden-arcanus)
 - Support for the Terrastomp Prism block break effect
+
+[Iron's Spells 'n Spellbooks](https://www.curseforge.com/minecraft/mc-mods/irons-spells-n-spellbooks)
+- Hide model through spell animation

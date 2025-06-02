@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.bettercombat;
+package de.cadentem.dragonsurvival_compatibility.mixin._animation;
 
 import by.dragonsurvivalteam.dragonsurvival.client.render.ClientDragonRender;
 import by.dragonsurvivalteam.dragonsurvival.util.DragonUtils;
@@ -14,30 +14,41 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(value = ClientDragonRender.class, remap = false)
 public abstract class ClientDragonRenderMixin {
-    /** Render the Better Combat attack animation */
+    /** Prevent the head from blocking the view */
     @Inject(method = "thirdPersonPreRender", at = @At("HEAD"), cancellable = true, remap = false)
     private static void dragonsurvival_compatibility$modifyRender(final RenderPlayerEvent.Pre event, final CallbackInfo callback) {
-        if (ClientConfig.BETTERCOMBAT.get()) {
-            if (!AnimationUtils.isAttacking(event.getEntity())) {
-                return;
-            }
+        if (!DragonUtils.isDragon(event.getEntity())) {
+            return;
+        }
 
-            if (DragonUtils.isDragon(event.getEntity())) {
-                event.getRenderer().getModel().setAllVisible(false);
-                Minecraft minecraft = Minecraft.getInstance();
+        boolean isAttacking = false;
 
-                if (minecraft.player == event.getEntity() && minecraft.options.getCameraType().isFirstPerson()) {
-                    // First person needs to hide the dragon model
-                    callback.cancel();
-                }
-            }
+        if (AnimationUtils.isAttacking(event.getEntity(), AnimationUtils.Type.BETTERCOMBAT)) {
+            // Only make the parts invisible so that the weapon is still rendered
+            event.getRenderer().getModel().setAllVisible(false);
+            isAttacking = true;
+        } else if (AnimationUtils.isAttacking(event.getEntity(), AnimationUtils.Type.IRON_SPELLBOOKS)) {
+            // Prevent the hands from being rendered
+            event.setCanceled(true);
+            isAttacking = true;
+        }
+
+        if (!isAttacking) {
+            return;
+        }
+
+        Minecraft minecraft = Minecraft.getInstance();
+
+        if (minecraft.player == event.getEntity() && minecraft.options.getCameraType().isFirstPerson()) {
+            // First person needs to hide the dragon model
+            callback.cancel();
         }
     }
 
     /** Render the tool when attacking */
     @WrapWithCondition(method = "thirdPersonPreRender", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/client/event/RenderPlayerEvent$Pre;setCanceled(Z)V"))
     private static boolean dragonsurvival_compatibility$renderTool(final RenderPlayerEvent.Pre instance, boolean isCancelled) {
-        if (ClientConfig.BETTERCOMBAT.get() && AnimationUtils.isAttacking(instance.getEntity())) {
+        if (AnimationUtils.isAttacking(instance.getEntity(), AnimationUtils.Type.BETTERCOMBAT)) {
             return false;
         }
 

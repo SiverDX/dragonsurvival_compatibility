@@ -1,4 +1,4 @@
-package de.cadentem.dragonsurvival_compatibility.mixin.bettercombat;
+package de.cadentem.dragonsurvival_compatibility.mixin._animation;
 
 import com.bawnorton.mixinsquared.TargetHandler;
 import de.cadentem.dragonsurvival_compatibility.compat.bettercombat.AnimationUtils;

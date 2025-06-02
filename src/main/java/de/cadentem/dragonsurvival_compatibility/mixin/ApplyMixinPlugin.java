@@ -22,6 +22,7 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
     public boolean shouldApplyMixin(final String targetClassName, final String mixinClassName) {
         String modid = mixinClassName.replace(PREFIX, "");
         modid = modid.replace("client.", "");
+        modid = modid.replace("_animation.", "");
         String[] elements = modid.split("\\.");
 
         if (elements.length == 2) {
@@ -32,6 +33,10 @@ public class ApplyMixinPlugin implements IMixinConfigPlugin {
             }
 
             return shouldApply;
+        }
+
+        if (mixinClassName.startsWith(PREFIX + "_animation.")) {
+            return LoadingModList.get().getModFileById("bettercombat") != null || LoadingModList.get().getModFileById("irons_spellbooks") != null;
         }
 
         return true;
