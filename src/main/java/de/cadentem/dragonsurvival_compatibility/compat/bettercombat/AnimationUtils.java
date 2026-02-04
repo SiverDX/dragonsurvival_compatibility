@@ -2,7 +2,7 @@ package de.cadentem.dragonsurvival_compatibility.compat.bettercombat;
 
 import de.cadentem.dragonsurvival_compatibility.compat.Compat;
 import de.cadentem.dragonsurvival_compatibility.config.ClientConfig;
-import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer;
+import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import io.redspace.ironsspellbooks.player.ClientMagicData;
 import net.minecraft.world.entity.player.Player;
 
@@ -40,8 +40,8 @@ public class AnimationUtils {
                     yield false;
                 }
 
-                KeyframeAnimationPlayer animation = ClientMagicData.castingAnimationPlayerLookup.get(player.getUUID());
-                yield animation != null && animation.isActive();
+                SyncedSpellData data = ClientMagicData.getSyncedSpellData(player);
+                yield data.isCasting();
         };
     }
 }
